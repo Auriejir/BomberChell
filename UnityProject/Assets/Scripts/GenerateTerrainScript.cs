@@ -17,6 +17,27 @@ public class GenerateTerrainScript : MonoBehaviour {
         get { return _nbPlayers; }
         set { _nbPlayers = value; }
     }
+
+    [SerializeField]
+    private GameObject _wall;
+    public GameObject Wall {
+        get { return _wall; }
+        set { _wall = value; }
+    }
+
+    [SerializeField]
+    private GameObject _box;
+    public GameObject Box {
+        get { return _box; }
+        set { _box = value; }
+    }
+
+    [SerializeField]
+    private GameObject _player;
+    public GameObject Player {
+        get { return _player; }
+        set { _player = value; }
+    }
     #endregion
 
 	// Use this for initialization
@@ -33,17 +54,26 @@ public class GenerateTerrainScript : MonoBehaviour {
             case 2:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3};
+                PlacePlayer(1, 1);
+                PlacePlayer(TerrainSize - 2, TerrainSize - 2);
                 break;
             case 3:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1};
+                PlacePlayer(1, 1);
+                PlacePlayer(TerrainSize - 2, TerrainSize - 2);
+                PlacePlayer(TerrainSize - 2, 0);
                 break;
             case 4:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1,
                                        0,TerrainSize-2,0,TerrainSize-3,1,TerrainSize-2};
+                PlacePlayer(1, 1);
+                PlacePlayer(TerrainSize - 2, TerrainSize - 2);
+                PlacePlayer(TerrainSize - 2, 0);
+                PlacePlayer(0, TerrainSize - 2);
                 break;
         }
 
@@ -81,23 +111,33 @@ public class GenerateTerrainScript : MonoBehaviour {
     void CreateBox(int x, int y) {
         //Create Box
         Debug.Log("Create Box at "+x+","+y);
-        GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        //cube.AddComponent<Rigidbody>();
-        cylinder.transform.position = new Vector3(x, 1, y);        
+        Instantiate(Box, new Vector3(x, 1, y), Quaternion.identity);
+        
     }
 
     void CreateWall(int x, int y) {
         //Create Wall
         Debug.Log("Create Wall at " + x + "," + y);
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //cube.AddComponent<Rigidbody>();
-        cube.transform.position = new Vector3(x, 1, y);
+        Instantiate(Wall, new Vector3(x, 1, y), Quaternion.identity);
+        /* *
+         * GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+         * cube.AddComponent<Rigidbody>();
+         * cube.transform.position = new Vector3(x, 1, y);
+         * */
     }
 
     void CreateLight(int x, int y, int z) {
+        //Create light
         GameObject lightGameObject = new GameObject("The Light");
         lightGameObject.AddComponent<Light>();
-        lightGameObject.light.color = Color.magenta;
-        lightGameObject.transform.position = new Vector3(TerrainSize / 2, 5, TerrainSize / 2);
+        lightGameObject.light.color = Color.white;
+        lightGameObject.light.intensity = 4;
+        lightGameObject.transform.position = new Vector3(TerrainSize / 2, 6, TerrainSize / 2);
+    }
+
+    void PlacePlayer(int x, int y) {
+        //Place Player
+        Debug.Log("Create Player at " + x + "," + y);
+        Instantiate(Player, new Vector3(x, 1, y), Quaternion.identity);
     }
 }
