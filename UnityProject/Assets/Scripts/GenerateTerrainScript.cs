@@ -38,6 +38,12 @@ public class GenerateTerrainScript : MonoBehaviour {
         get { return _player; }
         set { _player = value; }
     }
+
+    ArrayList _boxPlace = new ArrayList();
+    public ArrayList BoxPlace {
+        get { return _boxPlace; }
+        set { _boxPlace = value; }
+    }
     #endregion
 
 	// Use this for initialization
@@ -54,26 +60,26 @@ public class GenerateTerrainScript : MonoBehaviour {
             case 2:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3};
-                PlacePlayer(1, 1);
-                PlacePlayer(TerrainSize - 2, TerrainSize - 2);
+                PlacePlayer(1, 1, 1);
+                PlacePlayer(TerrainSize - 2, TerrainSize - 2, 2);
                 break;
             case 3:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1};
-                PlacePlayer(1, 1);
-                PlacePlayer(TerrainSize - 2, TerrainSize - 2);
-                PlacePlayer(TerrainSize - 2, 0);
+                PlacePlayer(1, 1, 1);
+                PlacePlayer(TerrainSize - 2, TerrainSize - 2, 2);
+                PlacePlayer(TerrainSize - 2, 0, 3);
                 break;
             case 4:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1,
                                        0,TerrainSize-2,0,TerrainSize-3,1,TerrainSize-2};
-                PlacePlayer(1, 1);
-                PlacePlayer(TerrainSize - 2, TerrainSize - 2);
-                PlacePlayer(TerrainSize - 2, 0);
-                PlacePlayer(0, TerrainSize - 2);
+                PlacePlayer(1, 1, 1);
+                PlacePlayer(TerrainSize - 2, TerrainSize - 2, 2);
+                PlacePlayer(TerrainSize - 2, 0, 3);
+                PlacePlayer(0, TerrainSize - 2, 4);
                 break;
         }
 
@@ -82,7 +88,6 @@ public class GenerateTerrainScript : MonoBehaviour {
                 //do/while to determine if we are on a special square
                 do {
                     if ((int)startCase.GetValue(xSC) == width && (int)startCase.GetValue(ySC) == height) {
-                        Debug.Log("Special");
                         startPlace = true;
                         break;
                     }
@@ -110,20 +115,17 @@ public class GenerateTerrainScript : MonoBehaviour {
 
     void CreateBox(int x, int y) {
         //Create Box
-        Debug.Log("Create Box at "+x+","+y);
-        Instantiate(Box, new Vector3(x, 1, y), Quaternion.identity);
+        string positionBox = x +","+ y;
+        BoxPlace.Add(positionBox);
+        var box = Instantiate(Box, new Vector3(x, 1, y), Quaternion.identity);
+        box.name = "Box "+x+","+y;
         
     }
 
     void CreateWall(int x, int y) {
         //Create Wall
-        Debug.Log("Create Wall at " + x + "," + y);
-        Instantiate(Wall, new Vector3(x, 1, y), Quaternion.identity);
-        /* *
-         * GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-         * cube.AddComponent<Rigidbody>();
-         * cube.transform.position = new Vector3(x, 1, y);
-         * */
+        var wall = Instantiate(Wall, new Vector3(x, 1, y), Quaternion.identity);
+        wall.name = "Wall " + x + "," + y;
     }
 
     void CreateLight(int x, int y, int z) {
@@ -135,9 +137,9 @@ public class GenerateTerrainScript : MonoBehaviour {
         lightGameObject.transform.position = new Vector3(TerrainSize / 2, 6, TerrainSize / 2);
     }
 
-    void PlacePlayer(int x, int y) {
+    void PlacePlayer(int x, int y, int number) {
         //Place Player
-        Debug.Log("Create Player at " + x + "," + y);
-        Instantiate(Player, new Vector3(x, 1, y), Quaternion.identity);
+        var player = Instantiate(Player, new Vector3(x, 1, y), Quaternion.identity);
+        player.name = "Player" + number;
     }
 }

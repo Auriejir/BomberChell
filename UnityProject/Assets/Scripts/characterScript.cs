@@ -18,6 +18,12 @@ public class characterScript : MonoBehaviour {
     get{return _rotateSpeed;}
     set{_rotateSpeed = Mathf.Clamp(value,0,90);}
   }
+
+  private int[] position = new int[2];
+  public int[] Position {
+      get { return position; }
+      set { position = value; }
+  }
   
   private Transform form;
   public Transform Bomb;
@@ -43,6 +49,11 @@ public class characterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        int x = (int)form.position.x;
+        int y = (int)form.position.y;
+        Position[0] = x;
+        Position[1] = y;
+
     if(Input.GetKey(KeyCode.Q)){
       move('x',_speed);
     }
