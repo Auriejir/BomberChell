@@ -11,14 +11,6 @@ public class characterScript : MonoBehaviour {
     set{_speed = Mathf.Clamp(value,0,40);}
   }
 	
-  [SerializeField]
-  private float _rotateSpeed = 45;
-  
-  public float RotateSpeed {
-    get{return _rotateSpeed;}
-    set{_rotateSpeed = Mathf.Clamp(value,0,90);}
-  }
-
   private int[] position = new int[2];
   public int[] Position {
       get { return position; }
@@ -27,69 +19,57 @@ public class characterScript : MonoBehaviour {
   
   private Transform form;
   public Transform Bomb;
-  
-  void move(char axis,float value){
-    switch(axis) {
-      case 'x':
-        form.position += Vector3.left * value * Time.deltaTime;
-      break;
-      case 'z':
-        form.position += Vector3.up * value * Time.deltaTime;
-      break;
-      case 'y':
-        form.position += Vector3.forward * value * Time.deltaTime;
-      break;
-    }
-  }
+
+  private NetworkView _myNetworkView = null;
   
 	// Use this for initialization
-	void Start () {
-    form = this.gameObject.transform;
-	}
+  void Start() {
+      form = this.gameObject.transform;
+      _myNetworkView = this.gameObject.GetComponent<NetworkView>();
+  }
 	
 	// Update is called once per frame
-	void Update () {
+    void Update() {
         int x = (int)form.position.x;
         int y = (int)form.position.y;
         Position[0] = x;
         Position[1] = y;
 
-    if(Input.GetKey(KeyCode.Q)){
-      move('x',_speed);
+        if (Input.GetKey(KeyCode.Q)) {
+            _myNetworkView.RPC("move", RPCMode.Server, 1, _speed);
+            //move('x',_speed);
+        }
+        if (Input.GetKey(KeyCode.D)) {
+            _myNetworkView.RPC("move", RPCMode.Server, 1, _speed * -1);
+            //move('x',_speed * -1);
+        }
+        if (Input.GetKey(KeyCode.Z)) {
+            _myNetworkView.RPC("move", RPCMode.Server, 2, _speed);
+            //move('y',_speed);
+        }
+        if (Input.GetKey(KeyCode.S)) {
+            _myNetworkView.RPC("move", RPCMode.Server, 2, _speed * -1);
+            //move('y',_speed * -1);
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Instantiate(Bomb, new Vector3(Mathf.Round(form.position.x), 0.25f, Mathf.Round(form.position.z)), Quaternion.identity);
+
+        }
     }
-    if(Input.GetKey(KeyCode.D)){
-      move('x',_speed * -1);
+
+    [RPC]
+    void move(int axis, float value) {
+        switch (axis) {
+            case 1:
+                form.position += Vector3.left * value * Time.deltaTime;
+                break;
+            case 2:
+                form.position += Vector3.forward * value * Time.deltaTime;
+                break;
+        }
+        if (Network.isServer) {
+            _myNetworkView.RPC("move", RPCMode.Others, axis, value);
+        }
     }
-    if(Input.GetKey(KeyCode.Z)){
-      move('y',_speed);
-    }
-    if(Input.GetKey(KeyCode.S)){
-      move('y',_speed * -1);
-    }
-    if(Input.GetKeyDown(KeyCode.A)){
-      //move('z',_speed);
-      Speed += 1;
-    }
-    if(Input.GetKeyDown(KeyCode.E)){
-      //move('z',_speed * -1);
-      Speed -= 1;
-    }
-    if(Input.GetKeyDown(KeyCode.Space)){
-      Instantiate(Bomb, new Vector3(Mathf.Round(form.position.x), 0.25f, Mathf.Round(form.position.z)), Quaternion.identity);
-      
-    }
-    if(Input.GetKey(KeyCode.LeftArrow)){
-      form.Rotate(Vector3.down * RotateSpeed * Time.deltaTime);
-    }
-    if(Input.GetKey(KeyCode.RightArrow)){
-      form.Rotate(Vector3.up * RotateSpeed * Time.deltaTime);
-    }
-    if(Input.GetKey(KeyCode.UpArrow)){
-      form.Rotate(Vector3.left * RotateSpeed * Time.deltaTime);
-    }
-    if(Input.GetKey(KeyCode.DownArrow)){
-      form.Rotate(Vector3.right * RotateSpeed * Time.deltaTime);
-    }
-	}
   
 }
