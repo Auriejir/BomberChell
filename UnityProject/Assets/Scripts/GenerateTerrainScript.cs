@@ -166,26 +166,22 @@ public class GenerateTerrainScript : MonoBehaviour {
     [RPC]
     void PlacePlayer() {
         //Place Player
-        if (Network.isServer) {
-            MyNetworkView.RPC("PlacePlayer", RPCMode.Others);
-        }
         switch (int.Parse(Network.player.ToString())) {
             case 1:
-                GameObject player1 = (GameObject)Network.Instantiate(Player, new Vector3(1, 1, 1), Quaternion.identity, 0);
-                player1.name = "Player1";
+                Network.Instantiate(Player, new Vector3(1, 1, 1), Quaternion.identity, 0);
                 break;
             case 2:
-                GameObject player2 = (GameObject)Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity, 0);
-                player2.name = "Player2";
+                Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity, 0);
                 break;
             case 3:
-                GameObject player3 = (GameObject)Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, 0), Quaternion.identity, 0);
-                player3.name = "Player3";
+                Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, 0), Quaternion.identity, 0);
                 break;
             case 4:
-                GameObject player4 = (GameObject)Network.Instantiate(Player, new Vector3(0, 1, TerrainSize - 2), Quaternion.identity, 0);
-                player4.name = "Player4";
+                Network.Instantiate(Player, new Vector3(0, 1, TerrainSize - 2), Quaternion.identity, 0);
                 break;
+        }
+        if (Network.isServer) {
+            MyNetworkView.RPC("PlacePlayer", RPCMode.Others);
         }
     }
 

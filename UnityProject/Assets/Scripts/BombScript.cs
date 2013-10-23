@@ -18,10 +18,10 @@ public class BombScript : MonoBehaviour {
     }
 
     bool done = false;
-
+    private NetworkView _myNetworkView = null;
 	// Use this for initialization
 	void Start () {
-	    
+        _myNetworkView = this.gameObject.GetComponent<NetworkView>();
 	}
 	
 	// Update is called once per frame
@@ -76,6 +76,7 @@ public class BombScript : MonoBehaviour {
             if (left) {
                 if (boxp.Contains(tempx + "," + (int)pos.y)) {
                     //Delete Box
+                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, tempx, (int)pos.y);
                     Debug.Log("BoxHit Left");
                     left = false;
                 }
@@ -93,6 +94,7 @@ public class BombScript : MonoBehaviour {
             if (right) {
                 if (boxp.Contains(tempx + "," + (int)pos.y)) {
                     //Delete Box
+                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, tempx, (int)pos.y);
                     Debug.Log("BoxHit Right");
                     right = false;
                 }
@@ -110,6 +112,7 @@ public class BombScript : MonoBehaviour {
             if (up) {
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
+                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, (int)pos.x, tempy);
                     Debug.Log("BoxHit Up");
                     up = false;
                 }
@@ -127,6 +130,7 @@ public class BombScript : MonoBehaviour {
             if (down) {
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
+                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, (int)pos.x, tempy);
                     Debug.Log("BoxHit Down");
                     down = false;
                 }
@@ -140,6 +144,24 @@ public class BombScript : MonoBehaviour {
                     down = false;
                 }
             }
+        }
+        _myNetworkView.RPC("DestroyBomb", RPCMode.Server);
+    }
+
+    [RPC]
+    void DestroyBox(int x, int y) {
+        GameObject box = GameObject.Find("Box " + x + "," + y);
+        DestroyObject(box);
+        if (Network.isServer) {
+            _myNetworkView.RPC("DestroyBox", RPCMode.Others, x, y);
+        }
+    }
+    
+    [RPC]
+    void DestroyBomb() {
+        DestroyObject(gameObject);
+        if (Network.isServer) {
+            _myNetworkView.RPC("DestroyBomb", RPCMode.Others);
         }
     }
 }

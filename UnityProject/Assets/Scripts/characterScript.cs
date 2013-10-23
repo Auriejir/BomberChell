@@ -24,8 +24,22 @@ public class characterScript : MonoBehaviour {
   
 	// Use this for initialization
   void Start() {
+      GameObject origin = GameObject.Find("Origin");
+      GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
       form = this.gameObject.transform;
       _myNetworkView = this.gameObject.GetComponent<NetworkView>();
+      if (form.position.x == 1 && form.position.z == 1) {
+          gameObject.name = "Player1";
+      }
+      if (form.position.x == generateTerrainScript.TerrainSize - 2 && form.position.z == generateTerrainScript.TerrainSize - 2) {
+          gameObject.name = "Player2";
+      }
+      if (form.position.x == 1 && form.position.z == generateTerrainScript.TerrainSize - 2) {
+          gameObject.name = "Player3";
+      }
+      if (form.position.x == generateTerrainScript.TerrainSize - 2 && form.position.z == 1) {
+          gameObject.name = "Player4";
+      }
   }
 	
 	// Update is called once per frame

@@ -5,7 +5,6 @@ public class NetworkScript : MonoBehaviour {
 
     public string Ip = "127.0.0.1";
     public int Port = 6600;
-    private int playerCount = 0;
 
     void OnGUI() {
         Application.runInBackground = true;
