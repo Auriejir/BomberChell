@@ -30,30 +30,39 @@ public class characterScript : MonoBehaviour {
 	
 	// Update is called once per frame
     void Update() {
-        int x = (int)form.position.x;
-        int y = (int)form.position.y;
-        Position[0] = x;
-        Position[1] = y;
+        if (networkView.isMine) {
+            int x = (int)form.position.x;
+            int y = (int)form.position.y;
+            Position[0] = x;
+            Position[1] = y;
 
-        if (Input.GetKey(KeyCode.Q)) {
-            _myNetworkView.RPC("move", RPCMode.Server, 1, _speed);
-            //move('x',_speed);
+            if (Input.GetKey(KeyCode.Q)) {
+                _myNetworkView.RPC("move", RPCMode.Server, 1, _speed);
+                //move('x',_speed);
+            }
+            if (Input.GetKey(KeyCode.D)) {
+                _myNetworkView.RPC("move", RPCMode.Server, 1, _speed * -1);
+                //move('x',_speed * -1);
+            }
+            if (Input.GetKey(KeyCode.Z)) {
+                _myNetworkView.RPC("move", RPCMode.Server, 2, _speed);
+                //move('y',_speed);
+            }
+            if (Input.GetKey(KeyCode.S)) {
+                _myNetworkView.RPC("move", RPCMode.Server, 2, _speed * -1);
+                //move('y',_speed * -1);
+            }
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                _myNetworkView.RPC("dropBomb", RPCMode.Server);
+            }
         }
-        if (Input.GetKey(KeyCode.D)) {
-            _myNetworkView.RPC("move", RPCMode.Server, 1, _speed * -1);
-            //move('x',_speed * -1);
-        }
-        if (Input.GetKey(KeyCode.Z)) {
-            _myNetworkView.RPC("move", RPCMode.Server, 2, _speed);
-            //move('y',_speed);
-        }
-        if (Input.GetKey(KeyCode.S)) {
-            _myNetworkView.RPC("move", RPCMode.Server, 2, _speed * -1);
-            //move('y',_speed * -1);
-        }
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Instantiate(Bomb, new Vector3(Mathf.Round(form.position.x), 0.25f, Mathf.Round(form.position.z)), Quaternion.identity);
+    }
 
+    [RPC]
+    void dropBomb() {
+        Instantiate(Bomb, new Vector3(Mathf.Round(form.position.x), 0.25f, Mathf.Round(form.position.z)), Quaternion.identity);
+        if (Network.isServer) {
+            _myNetworkView.RPC("dropBomb", RPCMode.Others);
         }
     }
 

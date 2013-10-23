@@ -61,43 +61,38 @@ public class GenerateTerrainScript : MonoBehaviour {
     }
     #endregion
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         MyNetworkView = this.gameObject.GetComponent<NetworkView>();
-	}
+    }
 
     [RPC]
-    private void Generate() {
+    private void Generate(int nbPlayer) {
         Application.LoadLevel(0);
+        NbPlayers = nbPlayer;
         MyNetworkView.RPC("CreateLight", RPCMode.Server, 0, 5, 0);
+        MyNetworkView.RPC("PlacePlayer", RPCMode.Server);
         //Switch to determine special square
         switch (NbPlayers) {
+            case 1:
+                startCase = new int[] { 1, 1, 1, 2, 2, 1 };
+                break;
             case 2:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3};
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, 1, 1, 1);
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, TerrainSize - 2, TerrainSize - 2, 2);
                 break;
             case 3:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1};
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, 1, 1, 1);
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, TerrainSize - 2, TerrainSize - 2, 2);
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, TerrainSize - 2, 0, 3);
                 break;
             case 4:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1,
                                        0,TerrainSize-2,0,TerrainSize-3,1,TerrainSize-2};
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, 1, 1, 1);
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, TerrainSize - 2, TerrainSize - 2, 2);
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, TerrainSize - 2, 0, 3);
-                MyNetworkView.RPC("PlacePlayer", RPCMode.Server, 0, TerrainSize - 2, 4);
                 break;
         }
-
         for (height = 0; height < TerrainSize; height++) {
             for (width = 0; width < TerrainSize; width++) {
                 //do/while to determine if we are on a special square
@@ -122,53 +117,76 @@ public class GenerateTerrainScript : MonoBehaviour {
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
     [RPC]
     void CreateBox(int x, int y) {
         //Create Box
-        string positionBox = x +","+ y;
-        BoxPlace.Add(positionBox);
-        var box = Instantiate(Box, new Vector3(x, 1, y), Quaternion.identity);
-        box.name = "Box "+x+","+y;
-        if (Network.isServer) {
-            MyNetworkView.RPC("CreateBox", RPCMode.Others, x, y);
+        if (!GameObject.Find("Box " + x + "," + y)) {
+            string positionBox = x + "," + y;
+            BoxPlace.Add(positionBox);
+            GameObject box = (GameObject)Instantiate(Box, new Vector3(x, 1, y), Quaternion.identity);
+            box.name = "Box " + x + "," + y;
+            box.renderer.material.color = Color.yellow;
+            if (Network.isServer) {
+                MyNetworkView.RPC("CreateBox", RPCMode.Others, x, y);
+            }
         }
-        
     }
     [RPC]
     void CreateWall(int x, int y) {
         //Create Wall
-        var wall = Instantiate(Wall, new Vector3(x, 1, y), Quaternion.identity);
-        wall.name = "Wall " + x + "," + y;
-        if (Network.isServer) {
-            MyNetworkView.RPC("CreateWall", RPCMode.Others, x, y);
+        if (!GameObject.Find("Wall " + x + "," + y)) {
+            GameObject wall = (GameObject)Instantiate(Wall, new Vector3(x, 1, y), Quaternion.identity);
+            wall.name = "Wall " + x + "," + y;
+            if (Network.isServer) {
+                MyNetworkView.RPC("CreateWall", RPCMode.Others, x, y);
+            }
         }
     }
 
     [RPC]
     void CreateLight(int x, int y, int z) {
         //Create light
-        GameObject lightGameObject = new GameObject("The Light");
-        lightGameObject.AddComponent<Light>();
-        lightGameObject.light.color = Color.white;
-        lightGameObject.light.intensity = 4;
-        lightGameObject.transform.position = new Vector3(TerrainSize / 2, 6, TerrainSize / 2);
-        if (Network.isServer) {
-            MyNetworkView.RPC("CreateLight", RPCMode.Others, x, y, z);
+        if (!GameObject.Find("The Light")) {
+            GameObject lightGameObject = new GameObject("The Light");
+            lightGameObject.AddComponent<Light>();
+            lightGameObject.light.color = Color.white;
+            lightGameObject.light.intensity = 4;
+            lightGameObject.transform.position = new Vector3(TerrainSize / 2, 6, TerrainSize / 2);
+            if (Network.isServer) {
+                MyNetworkView.RPC("CreateLight", RPCMode.Others, x, y, z);
+            }
         }
     }
 
     [RPC]
-    void PlacePlayer(int x, int y, int number) {
+    void PlacePlayer() {
         //Place Player
-        var player = Instantiate(Player, new Vector3(x, 1, y), Quaternion.identity);
-        player.name = "Player" + number;
         if (Network.isServer) {
-            MyNetworkView.RPC("PlacePlayer", RPCMode.Others, x, y, number);
+            MyNetworkView.RPC("PlacePlayer", RPCMode.Others);
+        }
+        switch (int.Parse(Network.player.ToString())) {
+            case 1:
+                GameObject player1 = (GameObject)Network.Instantiate(Player, new Vector3(1, 1, 1), Quaternion.identity, 0);
+                player1.name = "Player1";
+                break;
+            case 2:
+                GameObject player2 = (GameObject)Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity, 0);
+                player2.name = "Player2";
+                break;
+            case 3:
+                GameObject player3 = (GameObject)Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, 0), Quaternion.identity, 0);
+                player3.name = "Player3";
+                break;
+            case 4:
+                GameObject player4 = (GameObject)Network.Instantiate(Player, new Vector3(0, 1, TerrainSize - 2), Quaternion.identity, 0);
+                player4.name = "Player4";
+                break;
         }
     }
+
 }
