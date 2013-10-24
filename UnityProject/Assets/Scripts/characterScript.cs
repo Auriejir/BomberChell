@@ -29,16 +29,36 @@ public class characterScript : MonoBehaviour {
       form = this.gameObject.transform;
       _myNetworkView = this.gameObject.GetComponent<NetworkView>();
       if (form.position.x == 1 && form.position.z == 1) {
-          gameObject.name = "Player1";
+          if (GameObject.Find("Player1")) {
+              DestroyObject(gameObject);
+          }
+          else {
+              gameObject.name = "Player1";
+          }
       }
       if (form.position.x == generateTerrainScript.TerrainSize - 2 && form.position.z == generateTerrainScript.TerrainSize - 2) {
-          gameObject.name = "Player2";
+          if (GameObject.Find("Player2")) {
+              DestroyObject(gameObject);
+          }
+          else {
+              gameObject.name = "Player2";
+          }
       }
       if (form.position.x == 1 && form.position.z == generateTerrainScript.TerrainSize - 2) {
-          gameObject.name = "Player3";
+          if (GameObject.Find("Player3")) {
+              DestroyObject(gameObject);
+          }
+          else {
+              gameObject.name = "Player3";
+          }
       }
       if (form.position.x == generateTerrainScript.TerrainSize - 2 && form.position.z == 1) {
-          gameObject.name = "Player4";
+          if (GameObject.Find("Player4")) {
+              DestroyObject(gameObject);
+          }
+          else {
+              gameObject.name = "Player4";
+          }
       }
   }
 	
@@ -74,7 +94,7 @@ public class characterScript : MonoBehaviour {
 
     [RPC]
     void dropBomb() {
-        Instantiate(Bomb, new Vector3(Mathf.Round(form.position.x), 0.25f, Mathf.Round(form.position.z)), Quaternion.identity);
+        Instantiate(Bomb, new Vector3((int)Mathf.Round(form.position.x), 0.25f, (int)Mathf.Round(form.position.z)), Quaternion.identity);
         if (Network.isServer) {
             _myNetworkView.RPC("dropBomb", RPCMode.Others);
         }

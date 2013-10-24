@@ -19,9 +19,12 @@ public class BombScript : MonoBehaviour {
 
     bool done = false;
     private NetworkView _myNetworkView = null;
+    private ArrayList boxp;
+
 	// Use this for initialization
 	void Start () {
         _myNetworkView = this.gameObject.GetComponent<NetworkView>();
+        gameObject.collider.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +51,7 @@ public class BombScript : MonoBehaviour {
         characterScript p2 = player2.GetComponent<characterScript>();
         GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
 
-        ArrayList boxp = generateTerrainScript.BoxPlace;
+        boxp = generateTerrainScript.BoxPlace;
         ArrayList PlayerPlace = new ArrayList();
 
         PlayerPlace.Add(p1.Position[0] + "," + p1.Position[1]);
@@ -71,54 +74,83 @@ public class BombScript : MonoBehaviour {
         int tempy;
         int tempx;
 
-        for (int i = 0; i < PowerBomb; i++) {
+        print("Bomb : " + (int)pos.x + "," + (int)pos.z);
+
+        for (int i = 0; i <= PowerBomb; i++) {
             tempx = (int)pos.x + i;
             if (left) {
-                if (boxp.Contains(tempx + "," + (int)pos.y)) {
+                print("Right : " + tempx + "," + (int)pos.z);
+                if (boxp.Contains(tempx + "," + (int)pos.z)) {
                     //Delete Box
-                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, tempx, (int)pos.y);
-                    Debug.Log("BoxHit Left");
+                    DestroyBox(tempx, (int)pos.z);
+                    Debug.Log("BoxHit Right");
                     left = false;
                 }
-                else if (PlayerPlace.Contains(tempx + "," + (int)pos.y)) {
-                    Debug.Log("PlayerHit Left");
+                else if (PlayerPlace.Contains(tempx + "," + (int)pos.z)) {
                     //Kill Player
+                    Debug.Log("PlayerHit Right");
+                    if (PlayerPlace[0] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(1);
+                    else if (PlayerPlace[1] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(2);
+                    else if (PlayerPlace[2] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(3);
+                    else if (PlayerPlace[3] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(4);
                 }
-                else if (tempx % 2 == 0 && (int)pos.y % 2 == 0) {
+                else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
-                    Debug.Log("WallHit Left");
+                    Debug.Log("WallHit Right");
                     left = false;
                 }
             }
             tempx = (int)pos.x - i;
             if (right) {
-                if (boxp.Contains(tempx + "," + (int)pos.y)) {
+                print("Left : " + tempx + "," + (int)pos.z);
+                if (boxp.Contains(tempx + "," + (int)pos.z)) {
                     //Delete Box
-                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, tempx, (int)pos.y);
-                    Debug.Log("BoxHit Right");
+                    DestroyBox(tempx, (int)pos.z);
+                    Debug.Log("BoxHit Left");
                     right = false;
                 }
-                else if (PlayerPlace.Contains(tempx + "," + (int)pos.y)) {
-                    Debug.Log("PlayerHit Right");
+                else if (PlayerPlace.Contains(tempx + "," + (int)pos.z)) {
+                    Debug.Log("PlayerHit Left");
                     //Kill Player
+                    if (PlayerPlace[0] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(1);
+                    else if (PlayerPlace[1] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(2);
+                    else if (PlayerPlace[2] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(3);
+                    else if (PlayerPlace[3] == tempx + "," + (int)pos.z)
+                        DestroyPlayer(4);
                 }
-                else if (tempx % 2 == 0 && (int)pos.y % 2 == 0) {
+                else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
-                    Debug.Log("WallHit Right");
+                    Debug.Log("WallHit Left");
                     right = false;
                 }
             }
-            tempy = (int)pos.y + i;
+            tempy = (int)pos.z + i;
             if (up) {
+                print("Up : " + (int)pos.x + "," + tempy);
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
-                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, (int)pos.x, tempy);
+                    DestroyBox((int)pos.x, tempy);
                     Debug.Log("BoxHit Up");
                     up = false;
                 }
                 else if (PlayerPlace.Contains((int)pos.x + "," + tempy)) {
                     //Kill Player
                     Debug.Log("PlayerHit Up");
+                    if (PlayerPlace[0] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(1);
+                    else if (PlayerPlace[1] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(2);
+                    else if (PlayerPlace[2] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(3);
+                    else if (PlayerPlace[3] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(4);
                 }
                 else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
@@ -126,17 +158,26 @@ public class BombScript : MonoBehaviour {
                     up = false;
                 }
             }
-            tempy = (int)pos.y - i;
+            tempy = (int)pos.z - i;
             if (down) {
+                print("Down : " + (int)pos.x + "," + tempy);
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
-                    _myNetworkView.RPC("DestroyBox", RPCMode.Server, (int)pos.x, tempy);
+                    DestroyBox((int)pos.x, tempy);
                     Debug.Log("BoxHit Down");
                     down = false;
                 }
                 else if (PlayerPlace.Contains((int)pos.x + "," + tempy)) {
                     //Kill Player
                     Debug.Log("PlayerHit Down");
+                    if (PlayerPlace[0] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(1);
+                    else if (PlayerPlace[1] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(2);
+                    else if (PlayerPlace[2] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(3);
+                    else if (PlayerPlace[3] == (int)pos.x + "," + tempy)
+                        DestroyPlayer(4);
                 }
                 else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
@@ -145,23 +186,25 @@ public class BombScript : MonoBehaviour {
                 }
             }
         }
-        _myNetworkView.RPC("DestroyBomb", RPCMode.Server);
+        DestroyBomb();
     }
 
-    [RPC]
     void DestroyBox(int x, int y) {
+        boxp.Remove(x + "," + y);
         GameObject box = GameObject.Find("Box " + x + "," + y);
         DestroyObject(box);
-        if (Network.isServer) {
-            _myNetworkView.RPC("DestroyBox", RPCMode.Others, x, y);
-        }
     }
-    
-    [RPC]
+
+    void DestroyPlayer(int number) {
+        GameObject player = GameObject.Find("Player" + number);
+        DestroyObject(player);
+    }
+
     void DestroyBomb() {
         DestroyObject(gameObject);
-        if (Network.isServer) {
-            _myNetworkView.RPC("DestroyBomb", RPCMode.Others);
-        }
+    }
+
+    void OnTriggerExit(Collider col) {
+        gameObject.collider.enabled = true;
     }
 }
