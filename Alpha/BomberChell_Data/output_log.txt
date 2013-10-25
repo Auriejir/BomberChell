@@ -1,0 +1,1754 @@
+Initialize engine version: 4.2.1f4 (4d30acc925c2)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1151]
+    Renderer: AMD Radeon HD 6900 Series
+    Vendor:   ATI
+    VRAM:     2030 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 DF24=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.071 seconds
+desktop: 1920x1080 60Hz; virtual: 3200x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Initialize engine version: 4.2.1f4 (4d30acc925c2)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1151]
+    Renderer: AMD Radeon HD 6900 Series
+    Vendor:   ATI
+    VRAM:     2030 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 DF24=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Jonathan\Desktop\BomberChell_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.077 seconds
+desktop: 1920x1080 60Hz; virtual: 3200x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+UnloadTime: 0.242809 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 142.
+Total: 0.669367 ms (FindLiveObjects: 0.011666 ms CreateObjectMapping: 0.013124 ms MarkObjects: 0.237705 ms  DeleteObjects: 0.006562 ms)
+
+UnloadTime: 0.239528 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 142.
+Total: 0.538118 ms (FindLiveObjects: 0.008749 ms CreateObjectMapping: 0.013854 ms MarkObjects: 0.103175 ms  DeleteObjects: 0.002916 ms)
+
+test :3,1
+ 
+(Filename: C:/BuildAgent/work/cac08d8t5e2s5 d4cb/
+Ru
+ntime/ExportGenerated/Standaklcoc0ePlayer/UnityERunnimeneDebu/ExportGener5a)
+d/
+StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+test :13,11
+ 
+(Filename: t:eBsit :13,11ork
+/calc0am8a5 2:/d4Bu/RuildmeenEtpororGencace8r8a5e25d4cb/Runtime/ExportGtenerated/Stancapp Line: 54)
+
+tyEngineDebug.cpp Line: 54)
+
+TimeOuTi
+ e
+u(F
+ i
+(lileameme:C:/BBuildAAentent/w/caork/cac08d8a5e/Runtime/Exp5drcbGenertated/xpordtloenePlayer/StandyalonePlayer/cpp Line: U4)
+
+yEngineDebug.cpp Line: 54)
+
+Bomb : 3,1
+ 
+(Filename: C:/Buomb : 3,1
+ 
+(Filen8d8ma5 C25d4ui/luntdmA/Exnt/tork/cacted/Sta5endalon/PRuntime/itxpoEntginerDebdug.cpp Linne: 54)/
+U
+nitREngineD 3,bu
+g.
+cpile Liamee 54) C:
+/
+BuilRAgghtnt/ 3,or
+k/
+cac08d8a5e25d4cb/Rungtntme/Erk/portG8d8nerated/b/Rundale/ExpornGenPlaaye/S/UnitaloneginleDebug.cpyEngineDebug
+.
+cpp Line: 54)
+
+LefL eft : 
+3,
+1
+ 
+(Filename: C:/BuieldAgent/work/cac508d8a5e25d4tcb/Runtime/EnxportGenerataed/Stanyero/UnityeEn/gnityEngiineDebu.gppc LiLin e: 
+5
+4)
+
+Up :U3,1
+ 
+(Fi
+le
+nFame: C:/BCuildAgent/work/ckac08d8a5e25d4cb/Runtnimme//ExportGnenrated/StandalonePPlaaye/r/iUnityEnegDneDeb.ug.cpp L:in4)
+
+4)
+
+own :Down 
+: 
+3,1
+ na
+me: en:amui: Cl/duiledt/work/cack/cac08d82a5e25d4cb/RuntixmortEGenerGaterd/eStandalolnePlayer//UnityEnginneDeubug.p LinLe: :54)
+
+
+Right  : 4,1
+
+ 
+
+(Filename: C:/BuidldAgent/work/cac08d58a5e25d4Rcb/Rue/ExpornGtnereteEx/StandalonePelayer/danlonePlayer/Unitcpp Line:Debug
+.
+cpp Line: 54)
+
+BoxHit Right
+ B
+(Filename: C:
+/
+(uiilenamet/work/cildAgent/wark/08d8a58ae25d44cb/RRuntime/Exportuennrttei/St/axportoennrePedlatanr/UnoneyEngyer/UnityEnginLine:u 54)
+
+Line: 54)
+
+L
+ t  (,1
+ en
+ame: nC:/B uildAgent/ent/work/cac08w8o5r25d4ac0Rud8a5e25dxcb/Runeteraeted/Standaloaned/StyandalotyePlayer/Uebug.cpp eDiebug.cpp
+ 
+Linep: 54)
+
+ 
+(Up :name:
+ C
+:/Buiname: C:/BuAildAgwont/wocrk/8cac08d58a5e25d4cbm/Runpore/ExportGtedr/tSt/SnaddalonnPlayeye/r/UnityEnngineDebcug.Lcpp: Line
+
+: 54)
+
+BoxHit Bp
+ Hi
+tFilp
+am
+e: C:na/eBuCi/Bdugintd/wenrktcac0ordk/5c25c08d8a5e2ntime/ExptioertGenetGeneratedrSaatdeldneSPlayer/nePlayer/UnityEug.cpp ninen eDeb
+u
+g.cown :ne: 54) 
+3
+,Do
+w
+(F i,le
+na
+(Fil:ename: C:/Buni/dAork/cac08g8e5n25dworcb/Run08d8a5e25d4cb/Rtntime//ExportGnernatetd/StanddalnePneaylere/UnnityynginineDebuug.cppcLipe Line:
+ 
+54Le
+f
+t : eft 
+: 
+(F,1
+ 
+(FilC:/Build:/BuildwArk/cac08d8a5e25d4a5e25untib//Rxuntime/ExateortGenndaraonePlayern/aloUePltyyrEUnginiDtyuE.cnp Line: 54)
+
+p Line: 54)
+
+DDown : 3,-1
+
+ 
+
+F(lFniml:eCname: C:/BnuildrAgent/worake/cac08d8a5e25edE4portGenniee/ratedtGeneratelo/nePnlalyeer/aUnr/UnEigiyEnginuDebcp.cpLiLin:: 54)
+
+
+TiTeOmeOu
+ 
+(
+ 
+l(File:a e: /B:/BudAgent/worok/cacc08d8a5e25d5d4cb/uRtime/ExportGenernetrated/SdtandalonyePlayer/UnginEngineDebugL.cpp Line
+:
+ 54)B
+o
+mb : 3,1
+ 
+(Fi
+le
+nameen ame: Cl:/BuildAgrencac08d8a5e20d8db/R5e25d4cbxp/rtGenimre/ExportGeneoratead/StanidaylonePlayer/.UnityEnng 5neDe
+b
+uRighp   3L1
+ 
+(Fil5ena
+m
+e: CghBtildAgent
+/w
+ork/cac08d8a5e25d4dAgent/work/cac08d8an5e25dd4cbaRuntimnePlayer/UnityEngineDebeg.cportGee: er4at
+e
+d/Left : 3,1
+ 
+(Filenamye: C:/Bebiug.cpnt/woe: 5c4)
+
+d8aLeft : 3,1
+ 
+(FilenamrtGene/Bated/Staendt/work/cac08d8ia5e2gineDebuRu.ntp Line: 54)
+
+erUp : S3,1
+ 
+(Filename/U nityEngineDebuwogk.ccpp Line: 54)cb/
+R
+untUp : 3,1tGe
+nerateam/Stand:/BuePlayer/Un/wtoEnrik/Dcaug08d8a5e25d:454)
+
+unDown : portG
+ e
+nerated/StaC:/BuilPldyAr/Unit/Engirk/cac08d8a5e2ine: 54)5
+d
+4cDowuntnm /Ex3,rtG
+en
+erated/Sta daCo:ePBuyeldAgeitnt/gineDebugc0c8d 8ine: 54)
+
+b/Ruintime/Expo
+rt
+Genlerame: /Standaloneent/worr/Ucac08ityEngindDebug.cd4cbinRun: ime/Ex
+p
+ortGignhrated/Sta
+ 
+(Filenaame: C:/BuildAgeDebug.coprk/nc: c048d
+8
+a5ee25d4cb,1
+ /
+(Rilunate:ime/ExplortGetnerak/cac08t8a5e25d4cla/yuntime/ExportnGDenerated/StandaloneP
+
+ayeLeft : 2,1
+ 
+(Filename: C:/Bu54)
+
+AUp : 3,2
+ ac08d8na5e25d4cb/Runtime/ExportGaenerated/StandalonePlayer/ortGenerated/StandalonePlaye 54)iy
+ngine : 3,2
+ 
+( Line: 54)C:
+/
+BuiDown : 3,0rk
+/c
+ac08d8a5e25d4/BuilRuntime/ExportGenerated25d4c//Stnanmd/ExportGenarltodnetPlayer/Uniayer/tniEngineDeeDebug.cpp Lie: 54)
+
+
+
+Dowgn : 3,0
+ 
+
+(
+Filenaame: C:/BuiildAgent/wworkkcac088d885e5e25d4cb/Runime/e/xExportGenerad/ed/StandonePlayeryeUritUnityyEngineDbbuu.gpp pp Line: 5
+4
+)
+
+BoRight : 5,1
+
+ 
+(
+FFilename: C:/BuildAgennt/worrk/cac08d8a5ee5d4cb/b/ntunmeimExportGrtnerated/Sd/andalonePlaPleryer/UtitEngngneneDebu.gppc p Line: 5))
+
+Left : 1,1 R
+ig
+(Ft
+len
+aFie:ename: C:/BueildAgent/wor8d8a5e25d4c5b/5d4nb/ime/time/ExportGeted/Stan/aSotaPlaylor/UnityEngineDebugincpDebuige: 54)
+
+neU 54)
+
+,Le
+f
+(Fil1,1a
+me
+(Fi:/Buaie: C:/BuildAgentc08d8a5e25d4c8/Runtime/ExpartG25nd4cb/Runtimea/Exportyer/Unitd/StandalonePlayer/Unity54ng
+
+neDebug.cpp Lin
+ 
+( 54)en
+a
+me:p : /Buil
+dA
+(File/work/ca/BuildAgentd4work/cac08d8a5e25d4cnerated/Se/ExdoronePneayatr/UnityEngineDebutandpaline: 54)
+
+/UnityEngineDebug.cpp Line: 54)
+
+Down : 3,-1
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TimeOut
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Bomb : 3,1
+ 
+(Filename: C:/BuildAgent/work/cacT8i8m5e25dt
+ b/
+Runlemn/ame: C:/BuildAgent/wdalon/Playe0r/Unie2yEd4gib/RDebuim.c/Ep Lorne: 54)
+
+eRight : lo,1
+Pl
+ayer/nanie:yEC:/ineDebugent/work/cac08)
+
+dBa5e25d4cb/
+R
+untimea/ExportGeneratent/Standcaa08l8a5e2Pdlcb/Runtnime/ExportGeneratp dLite: d5l4ne)
+
+yer/Left : 3,1
+ 
+(Filename: C:/Buil
+d
+Right w: 3,1
+ 
+(Filename: C:/BuildAgenp/wrtoenercatc0/Sd8an5eal5dnePlayer/Une/ExportneDebrated/StLinde:lo54)
+
+ayer/UnityEn
+ 
+(Filen.ame: C:/BuildA
+
+gentLeft : 3,1
+ 
+(Filed4nbaRuntim://BxportGenet/ated/Stac08lo8a5e25d4cbU/iRyEugnnetibue/Ecpp xportGen)
+e
+raDown : 3,1
+ 
+(Pilenamr/: C:/BuilineDebug.cpkp Line: 54)
+
+d4cb/p u: 3,1
+ 
+(Filenameated/StalddAgent/workr/cac08d8a5e25d4cg./Rpuntime: ExportG
+
+neirha : 4,1
+ 
+(FilenPlma: er:/BniityEngineDoebucg.cpp Line: 54)
+
+untiowe/Expor1
+ e
+(Filename: C:/BuildaAgent/workng/neacebug8a5e25d4cb:/54)
+t
+imLeft : 2Gene
+ra
+tedleStanda: on:/Player/Unit/work/ceDc0bug.cpp Line: 54)
+
+me/Eigpot tGenera
+te
+d/Slename: C:/lBuildAgent/work/cac08dcpp L25ne: 54)
+
+tiUp : p3,2
+ 
+(Filed/StandalonePlayer/UnityEngineDeba5e25d4cin/Run54ime
+/
+ExLortGenerat
+ d
+(Filename: C:/BuildAgent/work/cac08d8a5e25: 4cb/R
+u
+ntimwn/E: p3rtG
+ ne
+(FilenaSt: nC:loBnilPlayer/UdiAygenin/wDerb/cg.cppd Lie25d 54)
+
+untimp :Export
+Ge
+nerated/StandalonePAgayer/work/cac08d8a5bu25d4cb/Runtime/Ex
+p
+ortigenerated/S
+t
+(Filename: y:er/UnityEngineDebcug.cpp Line: 54)Ru
+
+ntimownExpor0
+Ge
+nerateam/e:anCd/BuildAgentr/work/ycacin8d8a5ug.cd4p b/ine: 54)
+
+xpoLeft er 1te1
+ 
+(Fidename: C:/BuildAgeEtngineDeabug.cpp Line: /Runt
+i
+meRighortG5,1
+ 
+(eil/Sname: C:/Builder/ntnitoykEnagine8aDebug.cbpp Liimee/54)
+
+tGenp : 3,3
+ 
+(Fdilename: eC:/BitilEnginnt/work/cac 08d8a5e4)
+
+4cLeft : 1,1
+ 
+(Filename: d/StandalonePlayer/UcaicyEngineD25d4cb/Runtimn/E: o5tG)
+
+rateD/ownnda 3,-1
+ ye
+(F/lenitmEngin:/Beuuildpp Line: 54)
+
+c08dp : 3,3d
+ 
+(Filename: C:/Buenldrated/Stand/cane0Pd8a5e25d4cb/Runtime/Exg.cpp Line: 54)
+
+andalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Down : 3,-1
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+ttstst :1,2
+ 
+(Fil1,a2e:
+ C
+:FiBlename: C/workilcdc0en8a5e2r5d4cb08/8R5untdime/EuxportGenerrtGeeed/StandalonePlaeyer/UniUnEngineinebug.cpp Line: 54)
+
+
+TimeOut
+ 
+TFilmeaOeut
+ 
+(Filenaent/e:r /Cac08d8a5:/Builb/Aguenime/Exp/cac0tGd8ae5ated/Sta/Rdantoimel/Eer/UnityErngineDebudg.cpePlayer/p Line: 54)
+
+bug.cppBLomb : 413
+,
+11
+ 
+Bomb : 13,11
+ Bu
+ildlAgemnt/C:/Bkuild0Ag8a5e25dk/cab/0Runtime/dEcb/rtuGenmeratedrtSGeneraotePlatand/alonePlaiyeDebug.cEpp Leine:g 54)
+
+ineght : 1
+3
+,R1
+gh
+tFil 13,11
+ :
+(/ilenamge C:/BuildAgent/work/ca4cb08d8a5e25d4/b/Runtime/uxnortGe/nExpoertGenedaled/nePlnaylonePlayer/UnieDebuginceDebLug.cpp4)
+
+ine:L5eft
+ 
+: 13,ef1
+ 
+(Fil:name3, C:/
+ i(Filename: C:/cacl08d8a5e25d4/cbac08td8a5e2p5d4cen/Rrated//StaondaloenetPlaSyerd/UnnityEnginenityuE.cgineDebeug5c4)
+L
+inUp 5 4)
+1
+1
+ U
+p : 1name: 
+C
+(/Filename: /C:/Build08d8a5we25/d4cb/R8an5em5e/Ex/portGmeneExaportGenedrateed/Stan/dalonEePlayeer/UnitpyEngeineDeb
+u
+g.copp Line: 54
+)
+
+Foin e:am : 3,1/1uil
+d
+Agelnta/wo C:/Bui0ldAgen2t/wcb/kRcunt8me/ExportGb/Runtime/tandaloneePlaeyertandatlongePlDayuer/Un Ltineg: 54)b
+
+.cpRight : 54)
+
+
+ 
+(Filename: C:/
+Bu
+ilileena/wo:rk/cac0ldAgent/work/cac08d8a5e25dr4cb/Runtime/ExportGeneraatred/iStangdalDonuePlap Line: t54)
+
+neDLeft : p2 1Li
+ 
+(Fil4en
+a
+meL C:t/Buil,1g1
+ /w
+ork/caac08d8:a5e2ldAcgenut/wmorkx/cacG08dr8a5de25d4cblRontimle/eExUportGneneeratuedcpp Line: e4)l
+
+erUUn : yE3,gine
+De
+(Fg.cpname: e::Bui4dAg
+e
+ntUp : 13,12
+ 
+(Filed4cb/Ru Ctime/ExporgeGnnt/woed/Standalona5e25d4eb/Runtime/ExportGenerated/StandalonePla
+y
+er/UonityEngineD
+eb
+ug.cpp Line: 54)
+
+dAgeow/work/cac08
+d8
+(a5e25d4e:b/RuntiuildAgent/work/cac08da8a5e25d4cb/RuntimtyEngineDebenerated/Standalo
+n
+ePlayer/UnityEBoxHit Dug.cp
+p
+(Filename: C
+:
+/BuildAgent/worBoxHit Down
+ 
+(Fil/Runtime/C:xportGenerated/StandalonePl5e25dUn4tcb/gRnenteime/ExpoLrteGen4er
+a
+ted/htanda5l1o
+ 
+PFllanymee C/UnityEngineDebug.ccc08d8a5e: 54)
+
+/Runghime/Export: 15,11
+ 
+(/Staendame: C:/BuildAgent/wiork/cac.08d8a5e25d44cb
+/
+Runtim e/11,1r1Ge
+n
+erated/SetandalonedPlanyero/UnityEng8ineDebugb.cpnp Li/ne: r5Gen
+
+erated/Standalon
+eP
+(Failename: C:/BnuildAg.ent/Lwor:k54)
+
+/cacB8dHaie25Lefb/R
+u
+(Filename:rt:/eneiladAg/Snt/work/cePlayd8r/UnityEngineDebug.cxpp LtGee: 54)
+
+/StandalonBoxHit Left
+ 
+(Fileename: C:/Bine:dAgent
+/
+wUp : 13,813
+ e2
+(Fd4cbnaRmnt: me/EBuiordAGeent/wted/Stac0dad8on5e25layer/d4ctyRuntimeebug.crt enerne: 54)
+
+nUp : eP3,13
+ 
+(Filenamin: C:/BuildAgente:wo54k/c
+a
+c08Tia5e2utd
+ b
+(Filename: C:tGenerated/t/tandaloneP8laa5er25UnityEngineDebuxpocptG Lnenr: t54)
+
+andaloimePOayt
+ 
+(Fer/Uame: C:/Builbug.ent/worke:c54c
+
+8d8B5omb : 13,unt1
+ 
+(xportGene: ated/StadAdaenonePlayer/c08d8a5egineDeb/Rg.cpp L/Export4)en
+
+eraBomb : n1aloneP
+la
+(Fei/Unname: C:/BDebuAg.cntp woink/: ac4)
+
+8Righ5d4:b/13un11im
+e/
+EFxportGe:neC:atBuildAgenal/work/ayac0/Uni5ty5d4cb/Runtime/ExportG nerinted/Stan
+
+daloght : 13,11
+ 
+(Fileneame: C:/Buildegent4)
+
+k/cLc08d8a5e25d4c
+b/
+Runltiam/ExportGenerated:S C:d/lonePlayer/UnitBEuginldAgegt/wor Line: 08d8a
+5
+e25e4fb/tuntime/Exp
+ 
+(Filenraaed/: C:/BauiledAgent/work/cac08d8abue2.5d4cb/Re:nt54)
+
+ExportGene,1a1ed
+/S
+tandalonePla:/er/UnityEngineDebug.cpd8 Line: 54)
+
+untUp /: po3,11
+rt
+Geneenated/StandaldognetPworkercaUn08d8a5e25d4cb/g.cptimLi/Ee:portGe
+n
+erDown StandalonePl:yer/Unit
+yE
+nFilgineDebug.cpipdAgent/w54rk
+
+caD0w8d8a53,11
+ 
+(Filenamme: pC:tGuildAged/t/twork/cac08dy8r/5U25tdEngineDebug4cpp Lineim 54)
+
+orRGener : ed/Stan
+ 
+(loilePlamye: C:/Builginent/wug.cpp Line: 54)
+
+4cbRight : 1E4p,11
+ 
+(Filename: C:/Buillayere/UnityEngineDe8au5e25d4cb/Runtime
+/
+ExpoertGenerated
+/S
+(FidalonePla:yBur/lUnityEngink/cac08d8appe25d4cb/Runti
+m
+e/ELeft : 12,11
+ 
+(Fildalone Clayer/ilndAgent/work/cac08pd8ane: 54)
+
+Up : 53e12
+d
+(Fb/lenamti:me/ExportGener/atekd/Standalon2ePlayer/UniteyEngineDenerg.cedpSp ndanen:Play)
+
+/UnUp : 13n,12
+ g.
+cpp Linee: C:4)
+
+ldAgewnt/ 13,10
+ 
+(Fil8a5ee: C:/Buildntgime/Eork/cac08d8te5d/Stand/RunePlayer/pUnityEnginedeStDndabonePlayer/ne: 54)
+
+ineDobug.: c3p10
+ i
+nFi: 54)
+
+: R:iBuildAge5,1work
+/
+cac08nam8a5e25duicbdAgent/mwoErk/cac0ne8d8a5e25an4dalonePlaeyer/UnityEngineD/ebug.cpp Line: 54)
+
+tyRight : 15,11
+  
+(Fil 5e)n
+a
+mLefC:/: 1uildAg
+en
+tFi/work/caCc08d8a5egent/work/cntcime/ExportGeb/RuntieedExpordaGenerated/Sr/UndityEnginyer/Dnebug.cineD Ling.e: 54)
+
+: 5Lef
+t
+ :Up : 1
+ 
+(3
+ il
+(Filename: C:/BldAgenAgent/rko/cac08d8a5e2e5d4cb/Runtiime/ExporttGenerated/SttandalloneePlayeer/UUntytEnggineeDebug.cpp Linee:  4)4)
+
+
+DoUp : 13,13
+
+ 
+
+(Filename : C:/Buildent/work/rk/c8dc8a5e25d4cb4cb/ntunmeimex/ExportGeated/StdandaldalonePlayer/UniEnyEingiDnbug.cpp Lppne: ne: 
+
+54)
+
+Down : 13,9
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TimeOut
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5eT5dicm/euOuit
+ Ex
+(ortlenere: C/StBuildogent/workU/itaEn08d8eD5ebug.cpp Line: /E4)
+
+tGenBrambed 1Sta,1n
+a on
+eFPlayaer/UCnityiEngieneDebug.cpcp Line: 554)
+
+RuntiBomb : 13,11
+ at
+edi/eSatandalonuePlAayer/UonityaEngdineDebdug./Run Lime/Expor
+t
+GRight : 13,11d
+ 
+nePlaname/U CityEnginegebug.cpp Licned8 5a5e
+2
+5R4ci/gunt m:/Ex 1rt,11ee 
+(tedl/name: C:/BuildAgenUt/tyoEngineDed8a5e25d4cb/Runtim
+
+e/Exepor: 13,11
+ 
+(Filenndme:lonePBlildAgUnint/wginecac08d8a5ep Line: 54)
+
+meLExpt rtG1enera
+ t
+edi/enSmean d:/auiolePAgent/wlrk/yer/UnitcEagin8d8bu5e2c5d4Line: 54)
+
+ExpUrtG: ne3ated/S
+ta
+ndilenane:Player/Unit EnCin:D/buB.upp Lgne: /wor
+
+cacp0: d8a5e25
+ d
+4cb/Runtim e/ExportGennerated/Stca8ddalonePlayer/UnityEngineDebuerated/Standalo4)
+
+Playoer/UnityEng
+i
+(FeDlebame:.cpp Line: 54)
+
+Down il1A3ent/w
+o
+(Fcil08e8n5ame: C:/BuilimeAgenpt/work/catc08d8aadalo5de4cb/RuntiityEnginorDebug.crapted/Sta5da
+l
+onRPght : 14,11
+ 
+(Filenamey C:gineDlebug.cpp Line: 54)
+
+5e2Ri4cb/Run14ime11
+ 
+(rFileermeted C:/BuildoAgent/work/caycngd8na5e25d4cpp Line: 54)E
+
+ortGeenera12,11
+ 
+(Filenaeme: C:/UButyEnAgent/wobukg.cpp8d8a5e25 54cb/R
+
+Left /Ex 1ortGene
+ra
+tFilename: C:/ePlayedr/ent/wEngineDebu8d.8a5e25nd:454c
+b
+/Ru :time,12
+ 
+(Filen/mE:xCp/BrtGednerat/ed/Stancdaloane2PdlabyeuntimityExngineDeebutgd/cppan aLoienleyer/Uni
+t
+yEnUpneDebug.c
+ 
+ Line: 54) C
+:
+/Buown Ag 1n,t0/
+ w
+(Fike/amac08d8aB5e25d4cb/Runtime/Expd8rt5e25d4cb/d/untanme/ExneortayererUnityEngineDebnePcayp Line: 54)
+
+neDDown : 13,10e
+ 
+(Fi
+l
+enRightC:: 1uildA
+get/Filk/name:8dC:/5eui5ddAge/Runtime//Ex08or8aGene5ratb/R/Sntimda/EonportGenerated/StaineDebug.cpye Line: 54)
+g
+ineigeht :cpp5,1in
+ 
+(File
+
+neft : 11,1am
+e:
+ C:/BuamldAgent/wiork/cac08d8a5e25d4cba5Re25d4cb/RuortGme/Export/Stanraalod/ePlayer/UnityEngr/nenityEg.gcnep Line: 5p L
+
+inLef54)
+
+1,11 :
+  
+13,13
+am
+e:ilC:name: C:/eBuildAgecat/w8drkac5c08dd4a5b/25d4cb/R/ExportGenerrtGenerated/SonePdaayene/UniyeyE/UgiityEnginecpebug.cpp 54)
+
+: U4)
+
+ 1Down 
+:
+(F3,le
+ a
+(Filenamel: g:/BuildAk/enac/w8d8a5e25d4cb/Runtimeb/Runtime/Exrated/StarndalonePlayer/ePlityeEngineDebug.cpp Lin.cpp4)Li
+
+neDown) 
+
+: 13,9
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+test :5,1
+ 
+(Filenamet C:/ :5,1
+ 
+(Ftl/work/ C:/08i8ldA2ent/work/caimc08d8a5e2eneratbed/nStandalponePlayrer/UnityEnaginePebaueg.cpp Line: 54)
+u
+g.cpp Line: 54)
+
+test :3,3
+ 
+(Filename: te/Bui:d,3
+ 
+(Filrename: d8a5e25d4cb/nut/imerk/cac08d8aee2atded/Stuatidal/ExportyGenerated/StandalonePlayeir/: 54)
+
+gineDebug.cpp Line: 54)
+
+TimeOut
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerateT/SiameOuote
+ aerFilename: CeD/BuildAgentn/:ork/cac08d8a5e
+2
+5d4cBomb : 1,2
+ 
+(rtiGename:ed/St/aundalonetPlayer/UnityEn5gine4De/Rbntige/Expoirt:Ge4)
+
+tedBStandaloneP
+la
+yeilename: g:/BuieldAgent/wior: 5c4)
+
+d8aight : 1,2
+ 
+(Fil/Export: C:/BuildAtandal/onePlaac0/UnityEnd4cb/Runtgicpp/ELine: 54)
+
+tRight : 1,2
+ 
+(Fyerl/UamityEn:/guindADebug.gep t/ne:rk/)
+
+ac08Left : 1,2
+ Ru
+(ntime/mEx portuGenereatedo/StandaldoneP2laycb/RnunyEngeinepDrbug.cpp Ltnee: 54)
+
+/StaLeft neP 1,2
+ 
+(Filename: C:/BucildAigent/wor
+k
+/Up : d8a5e
+25
+d4icb/Ruenti:me/ExdportGewnrkrated/d8tan5eal5dnePlayer/UnbityntingineDebug.cepated/ne: 54)a
+
+nePlay:er/Un
+it
+yEilegineDebug.cpildAgenet/work
+/
+cDown : 1,2
+ 4c
+bFiluname: ti/mu/EldAgetGnte/work/cac08d8anePla5yecr/UnnityEngxineDeebug.cepp Laine: 5e4l
+a
+yeDoUwn :E gi,2e
+De
+builena Line: 54)
+ldAgRnt/wo :/cac08d8 52252d
+ b(Fi/Rnamtime/Exp: C:/neratded/StandalonecPlayer/2UnityERnginmeDebpug.GcperatedpStaine: 54)
+
+ayeRight : 2gi
+ eDe
+(Fil.cpape:L C:/Bu4il
+d
+Agenta/wortk/cahc0
+8d
+(8a5e2a5d4cb:/BuildAgent/w/rRucatim8e/axpe2r5Gdn4rabted/StandalonePleayer/Ud/StanndaloneuPlayer/UnityE4)
+
+neDWballHit  Rnight4)
+ 
+
+Filenam: 0 ,2
+ u
+lFdlenent/work/cac08d8at5e2r5d4acb/d8a5e25ed4cb/Runtnime/ExportGeanerated/StandalonePlayDer/UnitpyELinne:e 54)
+
+p Line: 54)
+
+ 
+(WalllHme: t L:eBfild
+Ag
+entlenamke: C:/BuildAgent//workime/E08pd8a5eneract/RdunttimalonePlayeeneUnitd/StaindaelonecPlaLine: 54)y
+
+EnWallHebug.cpp 
+L
+ine: 54)
+
+ U:/BuildA
+ e
+(Filename: 8d8a5ildAgecnt/wotik/cac08d8a5en25d4cb/Stunntime/ExporetGUenerated/Standalcpp lLyer/:Unity
+E
+ngi: eDe1u,3
+ 
+(File: 54)
+
+C:/BBoxHit Up/
+ 
+(Filename: C:5d4cb/Ruent/wmork/carcG0nerated/StandalonePlayer/UntGtenerated/StandalonePl:yer/Un54i
+t
+yEnBinxHiteUDe
+bu
+(Filenaime:: 54)Buil
+d
+ADent/ :o 1,1
+ 
+(Filename: C:/BuildAgent/workneac0e8dSta5ealonePlaye5d4cb/RyEnginntieme/Expo LiGenera)
+
+d/Dtawn :lo,n
+e
+PFlaenar/e: C:/nBuildebgeg.tcpp Line:c05d845e2
+
+d4cbDRuntime1,0xp
+or
+(Filenaaed/StandalonePgayernUti/wEngineDebug.cpp Line: R5n4i)
+/
+ExportGen: 1,t0
+ tandlelonePlay:r/UnityEnginewoebuk/ccac0Line: 54)
+
+4cb/RuTtimeOut
+ 
+(Filename: C:a/BuildAPgener/work/cac0gineDebud4cg/Runt meine:p5rtG
+e
+neratTimeOut
+al
+oniePlaye: rCUnituildgient/wbug.cpap08d8a5e254)
+
+b/RuBtmb : 1,por
+t
+(Fniratename: C:/BuildAger/tUnitk/ycnaice0eb8d8cap5ein5d4cb/Runtim
+e
+/ExpBomb : 1,2ed
+/S
+tailename: C:yer/UnityEngite/ewor.c/cpcp8 8L5e25d4cb)/
+R
+uRtime/E: p1,2
+ 
+(FilednaStandC:/oBuildAge/nt/wornk/cace08d8ap5e25de4cb/Ru
+n
+Riime/Expor2
+ 
+(Fited/Standa:lonePdAgent/work/cac08d8ale2adycb/RuntiyE/ExpneDebug.cpp Linea n4d
+
+aloeftP:l1,2a
+ y
+erilenityEng:ineDebugg.c/woLik/e: 54)
+
+a5eL5d4cb/Ru,2tim
+ 
+(FirtGeneratC:/Buildaloenet/wyork/cac08dginee2ebug.b/pp Linee/ 54)
+
+Exp rtGe1,era
+td/Staendamon: C:/BuildAityntn/inorDkbucac0ppdLine: 554)
+
+Runti : 1,2
+ rt
+(Feneraated CSt/BndalonePlauil/UAgityE/norkn/cebc0g.d8pp5 25ne: 54un
+t
+imDown : 1,2
+ 
+(Fil/SeanadalonePBuierdAgentyEorgikeDeaug.cpp Lin5d454)
+
+untime/Export
+Ge
+(Feilename: C:/lBuildAgent/work/ngic0eDebug.cpd4 Lineunt4)e/
+ExRight : 2,2
+ 
+(Filenamne: C:/BuildAgentinwoDebug.c8d8a5in25d4cb/R
+u
+nRime/t : 2r,2en
+e
+(atilename: al/BuildAgrennityork/neDebug.a5e25d4cb: Ru4nt
+i
+meWallHitGenerat
+ 
+(FilenalmenePlayBur/ldnAtyEnt/wnoDek/ugaccpp Line: d44)
+
+RuWallHit Roight
+ 
+(Fid/ename: C:/BPlayer/UnityEogrneDebug.cpa5 L25ne4:b/54u)ti
+
+mL/ExportGeneratet /S 0an2
+alo
+nePlayame/Un:ityEngAgneDe/wugrk/cap0pd8a5e25 54)
+
+Runtime/ 0x,o
+ tG
+(Fnerated/StandalondAPgayt/r/oUk/cac08gineDebug.4cpp/ unine:e/54)
+
+rtWallHit Left
+ 
+(Fileename: C:/Buingineenebug.cpp acne: 54)
+
+d4WallHit Le/ft
+ 
+(Felenamee: C:/BuildePlayer/genittwoEngineD08d8a5e25d.cppRuLnne: 54)
+
+ortGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Up : 1,3
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/RuUtpm : 1,o
+ t
+(nerlted/ntame: C:eBuilyer/ent/wEngi/cDebug.cpp Line:b/Runt 5e/)
+
+porDown : 1,1/
+St
+andalonePlaC:e/BuildAgentn/work/cac0 Line:a5e2
+5
+d4cb/owuntime/Ex
+po
+rtGeenerate C/Standalonentlayerk/cac08dnga5ne25ebug.cpp Line/Ex:portG
+e
+neraUp : 1,4
+ 
+(nePlename: C:/BungldAgent/workp Li/cac04)d8
+a
+5eUp : 1,4
+ 
+(Filename: C:/Bated/AStandwolok/ePacay8d8a5e25dEncb/Runtime/ExportGengerap ed/nS: anda
+
+onePlayBoxHit Up
+ in
+(Filbuna.cepp Line: 54)
+
+t/work/coxHit Up
+a
+(8d8a5ea5d4cb/RuuildAgent/worknerated/Ste2ad4cb/RuePlayer/xUnrtGyEneireDted/g.tandalone: a54r/
+
+niDown : 1,0
+ g
+.cilp name: C:/Bu
+i
+lDown :/wo,0k
+cac
+08d8aname5d4c/B/Runtime/Exporr/cGanerated/Stad4cb/Runtayer//UportGeneraeDedbug.cdalLinee:layer/
+U
+nityEngineDebug.cpp Line: 54)
+
+TimeOut
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StTidamonePtay
+e
+(UFityEnaimeDebug.cpp Line:e5:)
+C
+:/Buombld: A,2en
+t/
+worle/cac08d8a5e25d4Acen/Runtime/Ec08od8a5e25d4cd//RtandalonePlortyener/UnityEngineDebuglayer/UnitpyEngiee: 54)
+
+pp Bomb :54)
+
+,Ri
+gh
+t :l 1am2
+ 
+(:FBiildnament/work/cac08d8a5wor5d/ccbc0Rud8ti5ee2E5d4rb/Rueneimat/edp/StandaloneePlayedr/UniPlayer/Unitbun.cpp DLine.: p54in
+e
+R ght)
+ 
+Left : ,,2
+
+ 
+
+(Flename: C:/iuiendAgent/woBuk/lcAgent/work/cac08d85d5ecb5dRuntimuntime/E/xxportGeenerateed/StanndalonePlayer/UnityEngineDDebug.cpp Line:: 54)
+
+
+Up : 1 12
+ 
+(
+(ilenameme C:/:/BuildAuildAwgent/ac0rk/ca5e25d4cb/Runtime/Expor/ExporratnedrateddalonePlaoneP/Uayitr/UnityEngiug.cpp Line: 54)
+
+ 54)p 
+:
+ 1,Do
+wn
+ : 1,nam
+e:
+ C:leBuile:A en:/BuildAgacnt8dwoa5k/25ac4c8d8auntime/ExpRurtGeneErporedG/nStatned/StePlaalonePlityer/ginityEnginceD Liun.c: p L)
+
+e: Down
+ 
+: 1,2
+ 
+(File
+am
+e:ilCename:dACe:/BuirkdAgent/wor5e25c04cb8aRue2tid4cbExportGenerxportGenendated/Staayer/UnePtyEnerinUeDebugginep ebing.cpp Li
+n
+Right)
+
+ 2,W
+al
+lFilt ameR C:/tu
+ d
+AFglena/me: C:/Bu8ldA8ena5eo2k5cac08/Runtim5e/ExportGeneraxpeortGenerlateed/ySt/anityEngiPlayebr/UcnityEne: 54)
+
+ug.caplp Line: 54
+)
+(
+
+FLlet : e:0C,/B2il
+d
+(eFt/work/c: C:/BuildAgent//wontk/mcacx08d8Ga5e25de4cb/Runtime/Playetr/UnityEngineDebugnecpP Layne: 54)ty
+
+ELeft : b0,2
+ p 
+LFilename
+
+ CW/BuiHidAgent/
+w
+ork/cac08d8C:/B25ldAgenRt/work/Exac0r8Gene5e25d4cb/Rued/StandalonePlneyeated/StandgilonePlayer/p niinyE: 54)
+
+ebWallHit ineft
+ 
+(F
+i
+lenam 1,3
+ 
+(Filengent/wo/kBcui0ld8Ag5e25/w4crk/cac08me/Exp5drtGenerated//ExpodrlonnePlatyed/StnityEnneinlaDeerugU.itpp Line: 54).c
+
+pp L :ne: 54
+)
+
+FilDown : 1C:/B
+ 
+(ldilgent/worC:/c/BuildA5e25d4cb/Rgnenmt/Ewxpk/rtac08erat5e25St4cnd/alonePlayepo/UnityEngindeDebnda.cpp Liae:er54)n
+i
+tyEngin :De1b1
+g.
+cFil Linme: 5C:/
+B
+uild :e1nt/
+ w
+(Fik/ecaac08d8a5e2ldAgeb/t/Runt/cac08d8a5tG25nd4cb/Runtime/lEnePlayer/UnityEngtanedaelonePlayer/e: 54)
+
+ineUp : 1,4
+ 
+(File54ame
+:
+ D:/Bn ildAge
+ 
+/wioerkme: C:/Ba5e25d4cb/Ruont/ime/Expo5e25ne4cb/Rd/ntime/ExpoePlayer/Unid/yEtnndalonePugayer/UninteE:gi54)
+
+bug.cwn : in,e:
+ 5
+4)
+
+ename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TiimeeOut
+
+ 
+
+FFileename: C:/BulddgAgtenotk/cwc08dk8a5e28dd4acb/5du4cb/e/ntime/Genperatederated/SSatdaldonePlPayerr/UnntyEngigineDeugugpcp L Line: 54)
+
+
+Bomb : 5,1
+  
+
+(Filename C:/BuuildAgennt/work/cacc08d8a5e25d4cb/dRuntiunetimpo/EtGeneratedr/Sta/SdtaonePlayer/UnityEngineDeibug.bcgpp Line: 54)4
+
+
+Rightt :5,51
+ 
+
+(
+Filenaame: C:/BuildAAgnenwo/work/cac08a5e2524cd4cb/RRntntmemeE/ExrpGertGenerated/StandalonePlayenityEnityEnnDgineDeppu Line:Lin)
+
+54)L
+
+eft : 5,1
+ 
+(Fi
+l
+(Fime: C:/Bu:iluilgent/work/cac08d8a5ae08d8a5eR25d4cb/Runtime/nexport/GeanearantPlayStrandalyonePlayer/U.nityEngineDebu
+
+.cpU  :L5,1e
+ 
+(Filen:m : 4)
+
+uildUp : 5,1r
+k
+(Filename: C:/4cbildAgent//wportGeneratede25d4cb/Runtima/yex/pnortGenerated/Stanpdalon:eP4)
+
+r/UnityEngineD
+eb
+ug.cpp Li:ne:: 54)
+
+genD/own : 5,1
+ 
+(Filen4am/Runtime/ldAgent/work/cac08d8a5e25d4cb/RurntiityExportGenergatep /Staendal)o
+n
+Rilhay: r,1/
+ 
+(ityFngineDebu C:/Buiinde: 54)
+
+rk/Right :a 6,1
+ 
+(Filetimae/ExporBuieldAgent/wtork/lon08d8ay5e25d4cb/Runtime/Egxpor tGener5ate
+d
+/StandaBonePlayer/Un
+it
+yEngeineDebug.cpp Line: 54)
+
+/cac08d8a5e2t d4cb/Run
+ti
+(Feilename: C:/Buil/Stennt/work/cac08d8a5e25nd4cb/Runtime/ExportGener
+a
+ted/Standalo
+ne
+Plalename: C:yBeird/gent/woEnkgineDebug.cpp 4cbe/Runti
+
+me/ExportGene
+r
+aFilenamanda:lonildAaenet/work/cac08d8a5eg.cpp /Luine: 54)
+
+rtGep : 5,2
+ 
+(FilenamePlay C:U/BuildAgente/workp/cac08:d8a5
+e
+25d4c b /R2
+ 
+(FilexportGene/BuildAgent/work/cac08d8aUnityEnbgineDebugE.cpp Linne: 54)
+
+andaBonePla Upy
+er
+/UnityEngine:/BugildAgent/wor4k/
+c
+ac0Bd8aH5e25d4
+ c
+b/Runtimme/ExportGengeratedrSk/ndalonePlay25d4cb/RyEnntime/ExpgortGenera:ted/S
+
+Down : a,dalonePl
+ay
+er/UnityEngC:/BubulgAgcent/work/ca)
+c
+08dwn : 5,0
+ 
+(Filenme/E: C:/Buileratned/StandalonePlaey5e4cbURnintimeinxportG.cpp Line: 54)
+
+lonLeft : 3,1
+ 
+(Filnename: C:/BuildAgent/w
+
+ork/cft : ac08
+d8
+a5il25d4cb/Runame: C:/BurtdAngeantd/work/alonePlaye25d4cb/Runtime/Expocptp Lerne: d5Sta
+
+ndalonn Player/U
+ni
+(FyEngnnaDee:g.cpp Line: 54)
+
+orkDown : 5,5-214c
+(Filenaee/EC:ortGlnedatednt/workalonePlay8ar5eni5tyEngineDebug.xportGennerated
+/
+StandTionePla
+y
+eFirenUne: C:/BuildAgent/worg.cpp Line: 54)
+
+b/Runtime/Exp
+o
+rtGenermated/Stanldalone/Pork/cac08d8a5e25deDcebug.tcme/Expor 54)nra
+ted/StandaloneP
+la
+yer/UnimeyEngineDebug.cpnt wLik/eac 54)
+a
+5e2Bomb /Runtime
+/E
+(Filename: C:/BuildAgent/work/cac08dt8a5e25d4cb/Runtime/Expor4tG
+e
+Right d/ Stan
+da
+lonePlayer/UnityElngineDebug.cpp Line:/cac0
+8
+d8aght : 5,1Run
+ti
+me/lename: C:/BuildAgent/worke/lcacy8der/UnityEn/gineDeebugp.ctp eLinae: 54)
+
+dalonft : 5,1
+ 
+(tFingiame: C:/neDedbug.cpp Line:c054)
+
+e25Left : 5,1
+e
+/Filename: C:/BuildAgent/woePk/cac0r/dUnityEn4cb/Runtime/ExportGenera
+t
+ed/St :n 5,1
+ 
+(Filenane: C:/BuiityEngineDebug.cppd a5ie25d4cb/
+R
+unUp : 5,po
+ 
+(Filenam/S: C:/BuloldAgent/work/Plc08d8aUne25EngineDebugme/ExportGenerat
+
+d/Stoannd 5,1e la
+(eF/UnenamEe: C:/Buig.cpp Line: 54)
+
+8d8a5e25d4cb/R
+un
+time/ExportCGenerlated/StworakoneaPlayer/UnitycEngineDeb/ugp.ctGenerne: 5ate
+d
+/SRandal : 6l,1
+ 
+(nFtiEngineDebC:.cBp LinAg: 54)
+
+k/cRig8d8a5e625d
+4c
+(b/RuntmimeC:/xpuildAoert/work/cac08d8an5e25ldncbeRPntimer/EUportGengineDedbug.cpp Line: 54)
+
+nityeft : e4,1
+ 
+(Filenne: 54)
+
+uildAgent/work
+/
+(Filena5e:eC25d4ildAgent/w/ExporcG0nerated/Stanb/Runtime/Exr/UnityEnerated/Standalonine:ye5r/U
+n
+itUpn ine5e,2
+ 
+(F Lenneam5:) 
+
+CU/Bu:ild2gen
+tF/lwoark/ca:c0uildAgen5d/4cb/Runtime/Exp25d4cb/Rrutetime/anxdartGeneraaere/UStandylEngineDebug.cyp L/Uni 54)
+
+ineDownug.c,0p 
+Li
+ne: 54a)e:
+
+ C:/Bun l: 5,0
+ 
+(Fi/lacn08d8a5e25d4cbAgentt/meork/cac08d8a5e25d4cb/Runtonee/ExportGenyEngied/Stbug.app Line: lone
+P
+layer/Unity7,ngi
+ne
+(DFbilenameLine: 54)
+
+Agenig/ht : 7,1
+ 
+(Filenamcb: Ru:/timildAgent/Georekatcad/08tand5e25d4cb/Runtime/ExporntGeengerppted/Standal
+
+oneoxHite Rinity
+ ng
+(Fneleebuge:c C:/Bue: 54)e
+
+/woBoxHit Rd8at
+ 
+(FilenRume: C:/BuildAgenetated/Sctc0ndal5ne25d4cb//nRtyEngineDtebeuExpogt.cpp Line:Sta)n
+
+dLlonePlayer/
+Un
+iFiyEngineD C:ugB.cldAgient/5o)
+r
+k/ftac 0,1d8
+a5
+e25d4name: C:/BuildAgent/worktecac0d/Stan25adoncbPl/yer/timetyExngorneGenerated/Stinndalone
+
+laUp : 5,3
+ 
+(Filenamg.: C:/Liuie: Ag)
+t/wUp : 5,3
+ 
+(Filename: C:/BuildApgreGenerated/Stanacd8a8a5n25d4cb/RruUnntime/ExportGeneratei/Setanda
+on
+eDown r 5Unity
+E
+(FneDebug.cpp /iBuildAge
+
+nD/work: 5,-8d
+ 
+(F5d4len/Run C:/BuixldAtGent/work/cSta8d8al5e25d4cb//RuntyEme/ExportGgeneratede/S54)
+da
+lonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TimeOut
+ T
+(Filenam
+ 
+(FilenamdA: C:/BuilkAgent/work/cac08d8/cac5d4db/a5e25d4ecb/RurttienerExtporttGenaernateay/Sr/tnityEngineDebur/.cpp Line: 54)
+u
+g.Bopb Line:
+ 4)F
+
+ilenBomb : /Buil
+ 
+(gFine/wnramce: C:/BuilddAgent/worm/ea/0Expa5rtGenerated/StandalonePlenera/tnetyEngineDed/Stand aine: 54)
+
+RigonePl ye5/Uni
+ty
+EFigienamDebug.cBup LdAge: 5w)
+
+/cac08d8a5e25d
+4c
+(FiRunatime/Eme: C:/BuiatdA/gent/work/cacy08d8a5e25d4cb/Rubug.me/Expore:Ge54)r
+a
+ted/Stan: lon
+ 
+(Filename:E C:/BDuiug.cgpp Liork/cac0
+
+d8aLeft : 5,R1
+ 
+(F/Expnome: C:/BuildArtGt/werrkteca/S08anda5e25d4cay/Rr/UnityEngpineDebug.tcd/p tannda 54neP
+a
+yer/UUpt:y5Eng
+i
+(eDilena.ce: C:/BuildA)
+nt/wUp : 5,18d
+ 
+(Filenacb/RuC:t/meuiExdAorenGe/worateda/S8d8ndalod4PcayeruntiietyEnginGeDeerug.ecpp Line: 54)
+
+yerDUnityEn5,1
+ 
+(FilgnnaDme: C:/pu LiAgent/)w
+
+oDown c0 5,1a5
+ 
+(Filen/Ru: C:/e/uildAgenenerated/Sc08d8a5nePlayer/Ueit5dn4cnbD/bug.cpme LExpe: 54)
+
+ratRight : 6,1
+ 
+(FierenUame: C:/BuildAgentp work/cac08d
+8
+a5e25ght : 6,1
+ 
+(RuntimemeEx Cor/BGeileratent/workdacaone8d8aere2Und4cbEnRuintimeb/EgxcportGee: 54)
+
+/StLeft : 4,1
+ 
+r/UleitamEn: ineDBubuld.cgpp Linek/54ac0
+8
+d8L5e25d4cb/Ru
+n
+(ime/ExportGeneratedA/Senandaolk/nePc08ye8a/Uen5dtyEngineDebmug.cpp Line: 54)
+/
+StUndal 5n,2
+ 
+(Filenameng C:eDBuilg.cpen L/wnerk 54)
+
+8d8ap : 5,2
+ 
+(Filename: C:/BuildAged/Standk/lone08layere/5dnityERugitiemeb/Ex.corp Geine: 54)
+
+tandalonePlay
+er
+/UnityEne: C:D/Buildpp Line:r /ca)
+
+8d8a5eow5d4cb/R
+ 
+(Fiuentmi:eCEx/oBtueieladedgStandalonePlayer/Ucacy08d8a5e25d4ccpp Line: 54)
+rtGenerate:d7,St
+ 
+(alilnename: C:/BuilEnAgennDe/wug.k/cac0ine:a554)5d
+4
+cb/Runht m e,1
+xp
+(Frlenanera Ced/BStandAgent/work/c/ani08ydn8in5e25du4.cb/RLinte: 54)xp
+o
+rtGenerate3,/S
+ 
+(FilenePlayer//BuitydAnent/work/gac0eD8abug.5d4cb/inuntime)
+
+xpLrtGe :erated
+/
+(taildalomn: C:/Beri/dAgitt/Enwork/cac08d8a5ein5e:c /5unt
+m/ExUpr t Gene
+ 
+(Filename:alConePladAer/Ut/work/cic0e8eb8ag.ec5ppc /Runtime4)Ex
+
+poUtGenera3
+ed/
+Standnalone Cl:yeBu/UnitgeEnt/ineDebugc08d8a5e25d4c4)
+
+untDmo/ExpornGe: era-1ed
+ 
+(Finlename: C:/B/UndtAgneinnDtbug.orpp Line:d a5e45)4
+
+/RuDown : 5p,-1
+ 
+(Filename:n C:/BuilldAg/UnnityEk/giaceDebug.cpp Line: 54)
+
+/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TimeOut
+ 
+(Filename: C:/BuildAgTnimeOut
+c
+(F0id8e5na5m4cb/C:/Buil/EAgporeGnne/workd/St08d8aalonePl4ab/Rrunnity/ExportGenera.cpp Line: 54)
+
+PlayeB/UnityEngi
+ 
+(Filename: C:/Buil
+
+AgentBwork/: 3c,3
+ 
+(Fildename: C:/B/uildAgent/work/cac08d8a5e25d4yer/UuntyEmgineDebug.cpp Line: 54)
+
+lonePlayer/,3
+ 
+(yEnginame: C:/BuildLAgen t/wo
+r
+k/cac08d8a5e2
+5
+cb/Ru(tiFe/ilename: C:/BuildAgenal/wnerPlaycer/Ua5ey25d4ncDe/Runtime/ExportG4)
+
+erLteft : 3,3
+ 
+(Fileer/UnityEngineDebug.c/work/caec084d8
+a
+5e2Left : 3,3
+ 
+(FilenameneraCe:/Builddlogent/work/cac0y8ngineeDebcb/Runtime/ExporLine: 54)
+
+StaUdpl :e 3,3
+ 
+(FileEngmin C:/BDebug.uil dAgeent/w
+o
+rk/ca c08d8a
+5
+e25de4cbe/RuntBui/ldAgent/work/cacS08d8aloe25d4cb/Runtime/ExportGenerated/Standa4)
+
+nePolaye r/Un
+ 
+tyilgineDebCu/B.cldpAgene: o54)
+
+c08Down 25d4cb/
+R
+(Filename: C:/BuildAgent/work/cac08ad8r/U25d4cb/Runntimue/cExportGenerat
+e
+d/Sghatda:onePla
+ e/(Filenagin:eDebug.cpAp Linwe: 54)
+
+8dRa5e25d4c4,3
+ t
+(FilenameG: C:/BudildAgdanto/work/cac08d8a5e25d4cb/Runtipme/Expo54)
+
+neraeft : 2,3
+ 
+(Filenemr/ CU/nuitdAgeint/worg./cpp Linae: 54)
+
+/Rueft : 2,3
+ 
+(Filenamed/StandalonePlaywork/cac08dg8a5e25d4cbp/Runtime54)p
+rtGenerBoxHit Lefat
+ 
+(Filen/anietyE:ngineDegbug.wcpp Line: 854)
+
+d4cb/RuBoxHit Leoft
+ 
+(Filenamean dalouildAagee/Ut/tyEngineD0ed8ug5e25d4Lcnb:/54)
+
+iUp :xportG
+en
+eriatedmeSt C:/BuildPlgeyer/UnityEng08d8ebug.cpp LiRuentime
+
+xpop :G ne,4at
+e
+d/Slename: C:/BuildAgent/Engineaceb8d8a5e2 Li4cb 54)ti
+me/EBporxHene Uate
+ 
+(SFtandameoneP:/BuildAnienyEngineDeacug8dcpa5 Line: 54)
+
+time/EoxHit Up
+ 
+atedlenamn: C:/Builddalot/Player/acn0tyEngineDebub/Rup tiine: 54)
+
+Generated/Sta
+n
+(alilnname: yer/BUnityEgegineDebu/.cpc0Lide:a5e425
+
+dDown : 3i,e/E
+ p
+r(Fenilename: C:/BuinePlayert/UnityEngind8Deau5e2p5 Line: 54)
+
+e/ExportGen5,3
+er
+(FidlSeandalon C:/aBerildnigtyt/wgrk/cDeb08d8a5e2Ld4cb/Ru4)t
+
+e/Exight : 5,3at
+ 
+(Filenameon ePlayerdAUnenty/wngrk/eac08ud8appeLi25: 54b/
+
+unDiwne :xp3,rt
+ G
+(enleraated/StanildAgnePlayer/UnactyEnga5neDebug.cpp Line/Ex4)or
+t
+GeneDown : 3,1
+ 
+(Filename: C:/BuilidAgent/woppk Line:d84a5
+
+e25d4TimeOuti
+ e/
+(FxplertGenerated/StdAgenonePlayer/U08ityEngineDebug.cpp Line: 54)
+
+eratTimeOut
+ 
+(neilename: C:/BuildAgentugwocpp Line: 54)
+
+5d4cb/Ru : 3,3
+ 
+(Filename:ted/StandalennePlaryeca/U8dityEngi2e5ebdg.cpp Line: /E4)
+
+rtGBnembat: 3,3
+ 
+(FionePale:yeC:/BuilyEAgginteDebugcacpp8d8a5e25544cb
+
+/Right : 3,3
+ 
+(Filenamde: C:d/BonePlAgyent/woityEngin8e8aebug.cppb/Linnt: m54)x
+p
+oright : 3te3
+ S
+ndalonePlayFr/UnityEn: ineDebug.cpp Line:k/4)ac08d8a5e25d4cb
+/
+RuLeft : 3,3
+ e(FilenamSt C:daloilePAgent/worit/yacng8d8a5e25d4cb/ Luntime5/Ex
+p
+oLeft e: 3,3
+ 
+(Fdalloame: C:/BuinityEngin/werD/eacb8d8.cpp Ld4cb/Runtim
+
+/ExUp : 3,3
+ 
+(Fileannaaomeelaye:/BUnuildAgentDebug.cppacLin08 54a5
+
+e25pd: 3,3
+ 
+(Filename: C:/Bu4ldcgeRtuntime/Ec08d8a5e2ned4cat/ed/StandaxportGenerateUnittandalonePlayyrEUngiyEngineDecppg.cpne Line: 5
+4
+)
+
+DoDown : 3,
+3
+ 
+(Filena: C:/BueildAgBuildAgenk//work/ca8a58d8a5e25d4cun/Runtime/Exporeneeated/StanStaldalonePPalerayer/UnngineDebug.cpp Line: 54)
+
+ 54)i
+g
+htR: i,3
+ 
+(Filena
+me
+:FCi/luiedAaeme/:o kC:acB8uil5eA5g4cb//workme/Exacor8dGen5era5d4cb/Runtimed/EStpondtGlonnraPledyer/UnialonePleDyebug.cpp Linr/Unit
+
+Enginet : 2,3pp
+ 
+(Filename: Cine: 54)
+
+entLwork/cac,0
+8d
+(Filenad4cb/:/BuiimdAgent/woGenerat08ddSta5ne25d4ePblRuyer/Ue/ExyEortGneDeebaug.cpp Line:nePlay
+
+er/UnityEng4
+ 
+(Filgename: C:/Bui)lAg
+entUp : 3cac0
+ 
+(Fi5eename: C:/Bu25d4cb/Runtik/e/ac08drta5e25erated/d4cb/alunneime/ExportGyEnegiateDe/Stacpp Line: 54)
+
+onePlayer 3,2
+ 
+(FileeDame: C:/BuiindAge5n4)
+
+rk/Dac08d8a3,e25
+d4
+(ci/Runtime/eExportGeneraildAgent/work/caconePl5yer/Unityunngimn/EDebug.cppporinee: 54)
+
+StaRight : 5,3
+ 
+(FilyEnename: C:/cpupldAgne: 54)
+
+/caRight 5e25d3
+ b/
+Ruiltime/ExportGener:/ted/Stdandnt/woPlayrr//cait08d8aineeDebug.Rupptime/ExportGene54)
+
+d/Standalon,3Pl
+ay
+(Fr/Uenitme: C:/Buebug.gent/wine: cac08
+
+d8a5e25d: 1,3
+ 
+(/iRuntime/E:/xuildAgrtGt/work/cac0ated/e25Standaloneme/ExporlayeneratUed/SEnandalonbuPl.cper/inni: y5n4i)D
+bug.Upp L ine:
+ 5
+4)
+
+enaUp : 3/Bu
+ ld
+(Fgelet/woe:rCk//uildAgent/worac08d8a5e8a5d4cb/RuntimetiExportGentGeted/StandaloaePlayer/UnitdalonePlaeyer/cpp LyEn: 54)
+
+bug.cpp LoxnHit54Up
+
+ 
+(Filename: C:/B
+u
+(ldAgent/wo Ck/cBuc08d8a5nt/wd4cb/Runtid8a5e25d4cb/Ruratimd//ExportGeneratedr/UnandalonePlayer/EnnityEngbune.cpbugincp: 54)
+
+:Down 
+
+:Down 
+ :
+ Filen
+am
+e: C:/Build geCt/wBruildAgen8a5e25d4ac08duna5ime/ExporRGenermeteEdxSpaoralonePlateer/UnityEnginelaeber/UnityLing:neDebu
+g
+.cpp Line: 54)
+
+TimeOuu
+ 
+(F
+ilename:e: :/BuiuidAdAgent/wok/cac0808d8a55e4cb/4Ru/ntntie/e/xpxportGenated/eratealStandaler/UePilaEyern/DUnug.cpng Lineebug.cp
+
+ LinB: mb4)
+
+3,3
+B
+(File 3ame
+  
+(/Bililname: C:/ork/cac08nt/w5er2/5d4cbd/aRu25d4cb/Expontime/ExportGenerated/StandealoniePEngin/UnbtyEngineLiene: 54)
+
+inRight :
+ 
+3R3ght
+ : 3e,ame
+: 
+CFilename: Ct/BuilwoArent/acork/8aac08d84ce25d4cb/Runb/Runtimer/EenporatGedneStatndd/lotandalyerPlUnyetyEngineDegineDcpp L.cpep 54i)e:
+
+ 54)
+
+t :Left 
+  3
+,Fil
+e
+name: C:e:BuCi/BdAgent/wnrk/cac08d8a5et/work//cntc0med/Exe2ortGce/Runtime/ExpodrloGeePerater/UnityEngonePlebyeg./Upp LyEngi5n)e
+
+Debu g.cpp 
+ L
+ine: 5am)e
+:
+ C:/BuildAg
+ 
+(Filename: 8d8a5e2d5d4cb/Rurktime/Exp8ort25en4crateun/SimandalponteePlaated//StanEngineeDebug.cpp Line: neDeu.cppDLonwn 5 3)
+,
+3D
+o
+(Filenam
+e:
+( Cle/amue:dACg/euil/wAgrentacword8/c5c085dac5/Runtime/ExportGeneportGeneratedonePlaylr/onntyePgineeD/UbnitcyEnginne: 54)
+pp Lini: 54): 
+
+4,3
+ 
+(Fil 4na3m
+e:
+ C:/BuildAgC:/tBwoldAcac08/w8o5r25/d4cb/Ruanet5imeb/REntportGenerated/StandaltoneStaner/UnityEnyeineUnebug.cpp Line: 54)
+
+LinLeft : 
+2
+,3L
+ef
+t : 2,3
+ 
+(FilenildAgent/woirdAcaent/worke25d4cb/Runtid4cEx/RortGene/rxportGenaerated/Slaayeal/UnityEngineDebug.cineLine: 54)
+
+Line: 54 3
+
+4
+U
+(Filenam
+e:
+ C:/BuildAgentBuworkA/enac/w8drka5e25d4cb/5e25dimcb/ERuportGenerated/SneanatalonSeandalonePlayeEngineDebugi.cpp Line: 54)
+
+e: 5ow)
+
+: Down
+ :
+ Fi,2
+ 
+(e: C:/Bue:ldAgent/woAge/ct/wo8dk/a5e258d4cb/Runt4cme/RExntortGenportGeneraandalonePdaayer/PlayyEr/UnnetyebngineDebug.cp 5 L)
+
+e:Right
+ 
+: 5ight
+ :
+ 5i,3
+ 
+(FiC:enameldAgent/work/cac08or8a5e25d4cb/Run5dime/Exporite/ExportGe/Stanted/StandalerneUPlayerginitDybung.cnep Line: 54)Li
+
+neL eft 
+:
+ 1L3
+ t 
+(F 1le3
+ 
+(Fil:/BumedAgCe/Bt/iolk/cac08d8a5e25d408b/8a5e25d4cExportGenerExted/Staneralone/Stayer/UnityEngirneDitbug.cpp Line: 54)
+
+inUp : 3,
+5
+
+ p 
+: 3,e5am
+e:
+ C:/BuildA C:/Builrk/gcac0wod8a5e25d4cba/R25di4cb/RuorttGeneratreGe/Standaloneandaler/UPlityEngUnitDeEbginecpeb Line: 54)
+
+: 5Dow
+n
+ : 3,wn
+ :
+ 3ilen
+a
+mFi: C:/Build:/geuit/dAork/cac08d8a5e08d4ca5/R25nt4cme/Exporte/Eerpotetdeneranded/StandayeonePniayerngUnityEngg.cpp Line:pp )
+ne: 5
+4)
+
