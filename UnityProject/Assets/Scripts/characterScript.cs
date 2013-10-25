@@ -153,7 +153,7 @@ public class characterScript : MonoBehaviour {
         string positionBomb = x + "," + y;
         print("test :" + positionBomb);
         bombp.Add(positionBomb);
-        Instantiate(Bomb, new Vector3(x, 0.25f, y), Quaternion.identity);
+        Instantiate(Bomb, new Vector3(x, 1.25f, y), Quaternion.identity);
         if (Network.isServer) {
             _myNetworkView.RPC("dropBomb", RPCMode.Others, x, y);
         }
