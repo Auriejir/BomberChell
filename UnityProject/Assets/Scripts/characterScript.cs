@@ -30,9 +30,6 @@ public class characterScript : MonoBehaviour {
     public Transform Bomb;
     //private bool[] keys = { false, false, false, false };
 
-    private int x;
-    private int y;
-
     private GameObject origin;
     private GenerateTerrainScript generateTerrainScript;
     private ArrayList bombp;
@@ -42,10 +39,8 @@ public class characterScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         form = this.gameObject.transform;
-        y = (int)form.position.z;
-        x = (int)form.position.x;
-        Position[0] = x;
-        Position[1] = y;
+        Position[0] = (int)Mathf.Round(form.position.x);
+        Position[1] = (int)Mathf.Round(form.position.z);
         origin = GameObject.Find("Origin");
         generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
         _myNetworkView = this.gameObject.GetComponent<NetworkView>();
@@ -69,10 +64,8 @@ public class characterScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        y = (int)form.position.z;
-        x = (int)form.position.x;
-        Position[0] = x;
-        Position[1] = y;
+        Position[0] = (int)Mathf.Round(form.position.x);
+        Position[1] = (int)Mathf.Round(form.position.z);
 
         if (networkView.isMine) {
             if (Input.GetKey(KeyCode.Q)) {
@@ -92,7 +85,7 @@ public class characterScript : MonoBehaviour {
                 //move('y',_speed * -1);
             }
             if (Input.GetKeyDown(KeyCode.Space)) {
-                _myNetworkView.RPC("dropBomb", RPCMode.Server, x, y);
+                _myNetworkView.RPC("dropBomb", RPCMode.Server, (int)Mathf.Round(form.position.x), (int)Mathf.Round(form.position.z));
             }
         }
         /* stuff for move character... actualy working but not NETworking...
@@ -156,12 +149,12 @@ public class characterScript : MonoBehaviour {
 
     [RPC]
     void dropBomb(int x, int y) {
+        bombp = generateTerrainScript.BombPlace;
+        string positionBomb = x + "," + y;
+        print("test :" + positionBomb);
+        bombp.Add(positionBomb);
+        Instantiate(Bomb, new Vector3(x, 0.25f, y), Quaternion.identity);
         if (Network.isServer) {
-            bombp = generateTerrainScript.BombPlace;
-            string positionBomb = x + "," + y;
-            print("test :" + positionBomb);
-            bombp.Add(positionBomb);
-            Network.Instantiate(Bomb, new Vector3(x, 0.25f, y), Quaternion.identity, 0);
             _myNetworkView.RPC("dropBomb", RPCMode.Others, x, y);
         }
     }
