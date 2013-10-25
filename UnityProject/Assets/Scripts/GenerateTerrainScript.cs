@@ -45,6 +45,12 @@ public class GenerateTerrainScript : MonoBehaviour {
         set { _boxPlace = value; }
     }
 
+    ArrayList _bombPlace = new ArrayList();
+    public ArrayList BombPlace {
+        get { return _bombPlace; }
+        set { _bombPlace = value; }
+    }
+
     private int height;
     private int width;
 
@@ -84,13 +90,13 @@ public class GenerateTerrainScript : MonoBehaviour {
             case 3:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
-                                       TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1};
+                                       TerrainSize-2,1,TerrainSize-3,1,TerrainSize-2,2};
                 break;
             case 4:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
-                                       TerrainSize-2,0,TerrainSize-3,0,TerrainSize-2,1,
-                                       0,TerrainSize-2,0,TerrainSize-3,1,TerrainSize-2};
+                                       TerrainSize-2,1,TerrainSize-3,1,TerrainSize-2,2,
+                                       1,TerrainSize-2,1,TerrainSize-3,2,TerrainSize-2};
                 break;
         }
         for (height = 0; height < TerrainSize; height++) {
@@ -110,7 +116,7 @@ public class GenerateTerrainScript : MonoBehaviour {
                     MyNetworkView.RPC("CreateWall", RPCMode.Server, width, height);
                 }
                 //Use random to place or not box
-                else if (!startPlace && Random.Range(-5, 10) >= 0) {
+                else if (!startPlace && Random.Range(-10, 10) >= 0) {
                     MyNetworkView.RPC("CreateBox", RPCMode.Server, width, height);
                 }
                 startPlace = false;
@@ -174,10 +180,10 @@ public class GenerateTerrainScript : MonoBehaviour {
                 Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity, 0);
                 break;
             case 3:
-                Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, 0), Quaternion.identity, 0);
+                Network.Instantiate(Player, new Vector3(TerrainSize - 2, 1, 1), Quaternion.identity, 0);
                 break;
             case 4:
-                Network.Instantiate(Player, new Vector3(0, 1, TerrainSize - 2), Quaternion.identity, 0);
+                Network.Instantiate(Player, new Vector3(1, 1, TerrainSize - 2), Quaternion.identity, 0);
                 break;
         }
         if (Network.isServer) {

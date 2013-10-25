@@ -17,13 +17,18 @@ public class BombScript : MonoBehaviour {
         set { myTimer = value; }
     }
 
-    bool done = false;
-    private NetworkView _myNetworkView = null;
+    private GameObject origin;
+    private GenerateTerrainScript generateTerrainScript;
+    private bool done = false;
     private ArrayList boxp;
-
+    private ArrayList bombp;
+    private Transform form;
 	// Use this for initialization
 	void Start () {
-        _myNetworkView = this.gameObject.GetComponent<NetworkView>();
+        origin = GameObject.Find("Origin");
+        generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
+        bombp = generateTerrainScript.BombPlace;
+        form = this.gameObject.transform;
         gameObject.collider.enabled = false;
 	}
 	
@@ -41,15 +46,12 @@ public class BombScript : MonoBehaviour {
 	}
 
     void TimeOut() {
-        Vector3 pos = this.gameObject.transform.position;
-
-        GameObject origin = GameObject.Find("Origin");
+        Vector3 pos = form.position;
         GameObject player1 = GameObject.Find("Player1");
         GameObject player2 = GameObject.Find("Player2");
 
         characterScript p1 = player1.GetComponent<characterScript>();
         characterScript p2 = player2.GetComponent<characterScript>();
-        GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
 
         boxp = generateTerrainScript.BoxPlace;
         ArrayList PlayerPlace = new ArrayList();
@@ -89,13 +91,13 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains(tempx + "," + (int)pos.z)) {
                     //Kill Player
                     Debug.Log("PlayerHit Right");
-                    if (PlayerPlace[0] == tempx + "," + (int)pos.z)
+                    if (PlayerPlace[0].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1] == tempx + "," + (int)pos.z)
+                    else if (PlayerPlace[1].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(2);
-                    else if (PlayerPlace[2] == tempx + "," + (int)pos.z)
+                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(3);
-                    else if (PlayerPlace[3] == tempx + "," + (int)pos.z)
+                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(4);
                 }
                 else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
@@ -116,13 +118,13 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains(tempx + "," + (int)pos.z)) {
                     Debug.Log("PlayerHit Left");
                     //Kill Player
-                    if (PlayerPlace[0] == tempx + "," + (int)pos.z)
+                    if (PlayerPlace[0].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1] == tempx + "," + (int)pos.z)
+                    else if (PlayerPlace[1].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(2);
-                    else if (PlayerPlace[2] == tempx + "," + (int)pos.z)
+                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(3);
-                    else if (PlayerPlace[3] == tempx + "," + (int)pos.z)
+                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == tempx + "," + (int)pos.z)
                         DestroyPlayer(4);
                 }
                 else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
@@ -143,13 +145,13 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains((int)pos.x + "," + tempy)) {
                     //Kill Player
                     Debug.Log("PlayerHit Up");
-                    if (PlayerPlace[0] == (int)pos.x + "," + tempy)
+                    if (PlayerPlace[0].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1] == (int)pos.x + "," + tempy)
+                    else if (PlayerPlace[1].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(2);
-                    else if (PlayerPlace[2] == (int)pos.x + "," + tempy)
+                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(3);
-                    else if (PlayerPlace[3] == (int)pos.x + "," + tempy)
+                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(4);
                 }
                 else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
@@ -170,13 +172,13 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains((int)pos.x + "," + tempy)) {
                     //Kill Player
                     Debug.Log("PlayerHit Down");
-                    if (PlayerPlace[0] == (int)pos.x + "," + tempy)
+                    if (PlayerPlace[0].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1] == (int)pos.x + "," + tempy)
+                    else if (PlayerPlace[1].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(2);
-                    else if (PlayerPlace[2] == (int)pos.x + "," + tempy)
+                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(3);
-                    else if (PlayerPlace[3] == (int)pos.x + "," + tempy)
+                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == (int)pos.x + "," + tempy)
                         DestroyPlayer(4);
                 }
                 else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
@@ -186,7 +188,7 @@ public class BombScript : MonoBehaviour {
                 }
             }
         }
-        DestroyBomb();
+        DestroyBomb((int)form.position.x, (int)form.position.y);
     }
 
     void DestroyBox(int x, int y) {
@@ -200,7 +202,8 @@ public class BombScript : MonoBehaviour {
         DestroyObject(player);
     }
 
-    void DestroyBomb() {
+    void DestroyBomb(int x, int y) {
+        bombp.Remove(x + "," + y);
         DestroyObject(gameObject);
     }
 
