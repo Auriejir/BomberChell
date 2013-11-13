@@ -51,6 +51,30 @@ public class GenerateTerrainScript : MonoBehaviour {
         set { _bombPlace = value; }
     }
 
+    private bool player1Alive = false;
+    public bool Player1Alive {
+        get { return player1Alive; }
+        set { player1Alive = value; }
+    }
+
+    private bool player2Alive = false;
+    public bool Player2Alive {
+        get { return player2Alive; }
+        set { player2Alive = value; }
+    }
+    
+    private bool player3Alive = false;
+    public bool Player3Alive {
+        get { return player3Alive; }
+        set { player3Alive = value; }
+    }
+
+    private bool player4Alive = false;
+    public bool Player4Alive {
+        get { return player4Alive; }
+        set { player4Alive = value; }
+    }
+
     private int height;
     private int width;
 
@@ -74,7 +98,6 @@ public class GenerateTerrainScript : MonoBehaviour {
 
     [RPC]
     private void Generate(int nbPlayer) {
-        Application.LoadLevel(0);
         NbPlayers = nbPlayer;
         MyNetworkView.RPC("CreateLight", RPCMode.Server, 0, 5, 0);
         MyNetworkView.RPC("PlacePlayer", RPCMode.Server);
@@ -82,21 +105,25 @@ public class GenerateTerrainScript : MonoBehaviour {
         switch (NbPlayers) {
             case 1:
                 startCase = new int[] { 1, 1, 1, 2, 2, 1 };
+                MyNetworkView.RPC("PlayerState", RPCMode.All, 1);
                 break;
             case 2:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3};
+                MyNetworkView.RPC("PlayerState", RPCMode.All, 2);
                 break;
             case 3:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,1,TerrainSize-3,1,TerrainSize-2,2};
+                MyNetworkView.RPC("PlayerState", RPCMode.All, 3);
                 break;
             case 4:
                 startCase = new int[]{1,1,1,2,2,1,
                                        TerrainSize-2,TerrainSize-2,TerrainSize-3,TerrainSize-2,TerrainSize-2,TerrainSize-3,
                                        TerrainSize-2,1,TerrainSize-3,1,TerrainSize-2,2,
                                        1,TerrainSize-2,1,TerrainSize-3,2,TerrainSize-2};
+                MyNetworkView.RPC("PlayerState", RPCMode.All, 4);
                 break;
         }
         for (height = 0; height < TerrainSize; height++) {
@@ -128,6 +155,29 @@ public class GenerateTerrainScript : MonoBehaviour {
     void Update() {
 
     }
+
+    [RPC]
+    void PlayerState(int number) {
+        if (number == 1) {
+            Player1Alive = true;
+        }
+        else if (number == 2) {
+            Player1Alive = true;
+            Player2Alive = true;
+        }
+        else if (number == 3) {
+            Player1Alive = true;
+            Player2Alive = true;
+            Player3Alive = true;
+        }
+        else {
+            Player1Alive = true;
+            Player2Alive = true;
+            Player3Alive = true;
+            Player4Alive = true;
+        }
+    }
+
     [RPC]
     void CreateBox(int x, int y) {
         //Create Box
@@ -190,5 +240,4 @@ public class GenerateTerrainScript : MonoBehaviour {
             MyNetworkView.RPC("PlacePlayer", RPCMode.Others);
         }
     }
-
 }

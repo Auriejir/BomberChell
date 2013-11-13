@@ -154,9 +154,6 @@ public class characterScript : MonoBehaviour {
         print("test :" + positionBomb);
         bombp.Add(positionBomb);
         Network.Instantiate(Bomb, new Vector3(x, 1.25f, y), Quaternion.identity, 0);
-        if (Network.isServer) {
-            _myNetworkView.RPC("dropBomb", RPCMode.Others, x, y);
-        }
     }
 
     [RPC]

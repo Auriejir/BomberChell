@@ -4,7 +4,7 @@ using System.Collections;
 public class BombScript : MonoBehaviour {
 
     [SerializeField]
-    private int _powerBomb = 2;
+    private int _powerBomb = 1;
     public int PowerBomb {
         get { return _powerBomb; }
         set { _powerBomb = value; }
@@ -23,17 +23,17 @@ public class BombScript : MonoBehaviour {
     private ArrayList boxp;
     private ArrayList bombp;
     private Transform form;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         origin = GameObject.Find("Origin");
         generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
         bombp = generateTerrainScript.BombPlace;
         form = this.gameObject.transform;
         gameObject.collider.enabled = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update() {
         if (myTimer > 0) {
             MyTimer -= Time.deltaTime;
         }
@@ -43,35 +43,49 @@ public class BombScript : MonoBehaviour {
             TimeOut();
         }
 
-	}
+    }
 
     void TimeOut() {
         Vector3 pos = form.position;
-        GameObject player1 = GameObject.Find("Player1");
-        GameObject player2 = GameObject.Find("Player2");
-
-        characterScript p1 = player1.GetComponent<characterScript>();
-        characterScript p2 = player2.GetComponent<characterScript>();
-
         boxp = generateTerrainScript.BoxPlace;
         ArrayList PlayerPlace = new ArrayList();
-
-        PlayerPlace.Add(p1.Position[0] + "," + p1.Position[1]);
-        PlayerPlace.Add(p2.Position[0] + "," + p2.Position[1]);
-        if (generateTerrainScript.NbPlayers == 3) {
-            GameObject player3 = GameObject.Find("Player3");
-            characterScript p3 = player3.GetComponent<characterScript>();
-            PlayerPlace.Add(p3.Position[0] + "," + p3.Position[1]); 
+        print(generateTerrainScript.Player1Alive);
+        print(generateTerrainScript.Player2Alive);
+        print(generateTerrainScript.Player3Alive);
+        print(generateTerrainScript.Player4Alive);
+        if (generateTerrainScript.Player1Alive) {
+            GameObject player1 = GameObject.Find("Player1");
+            characterScript p1 = player1.GetComponent<characterScript>();
+            PlayerPlace.Add(p1.Position[0] + "," + p1.Position[1]);
         }
-        else if (generateTerrainScript.NbPlayers == 4) {
+        else {
+            PlayerPlace.Add("aurix , jojo");
+        }
+        if (generateTerrainScript.Player2Alive) {
+            GameObject player2 = GameObject.Find("Player2");
+            characterScript p2 = player2.GetComponent<characterScript>();
+            PlayerPlace.Add(p2.Position[0] + "," + p2.Position[1]);
+        }
+        else {
+            PlayerPlace.Add("aurix , jojo");
+        }
+        if (generateTerrainScript.Player3Alive) {
             GameObject player3 = GameObject.Find("Player3");
-            GameObject player4 = GameObject.Find("Player4");
             characterScript p3 = player3.GetComponent<characterScript>();
-            characterScript p4 = player4.GetComponent<characterScript>();
             PlayerPlace.Add(p3.Position[0] + "," + p3.Position[1]);
-            PlayerPlace.Add(p4.Position[0] + "," + p4.Position[1]); 
         }
-                
+        else {
+            PlayerPlace.Add("aurix , jojo");
+        }
+        if (generateTerrainScript.Player4Alive) {
+            GameObject player4 = GameObject.Find("Player4");
+            characterScript p4 = player4.GetComponent<characterScript>();
+            PlayerPlace.Add(p4.Position[0] + "," + p4.Position[1]);
+        }
+        else {
+            PlayerPlace.Add("aurix , jojo");
+        }
+
         bool up = true, down = true, left = true, right = true;
         int tempy;
         int tempx;
@@ -91,14 +105,22 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains(tempx + "," + (int)pos.z)) {
                     //Kill Player
                     Debug.Log("PlayerHit Right");
-                    if (PlayerPlace[0].ToString() == tempx + "," + (int)pos.z)
+                    if (PlayerPlace[0].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1].ToString() == tempx + "," + (int)pos.z)
+                        generateTerrainScript.Player1Alive = false;
+                    }
+                    else if (PlayerPlace[1].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(2);
-                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == tempx + "," + (int)pos.z)
+                        generateTerrainScript.Player2Alive = false;
+                    }
+                    else if (PlayerPlace[2].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(3);
-                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == tempx + "," + (int)pos.z)
+                        generateTerrainScript.Player3Alive = false;
+                    }
+                    else if (PlayerPlace[3].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(4);
+                        generateTerrainScript.Player4Alive = false;
+                    }
                 }
                 else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
@@ -118,14 +140,22 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains(tempx + "," + (int)pos.z)) {
                     Debug.Log("PlayerHit Left");
                     //Kill Player
-                    if (PlayerPlace[0].ToString() == tempx + "," + (int)pos.z)
+                    if (PlayerPlace[0].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1].ToString() == tempx + "," + (int)pos.z)
+                        generateTerrainScript.Player1Alive = false;
+                    }
+                    else if (PlayerPlace[1].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(2);
-                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == tempx + "," + (int)pos.z)
+                        generateTerrainScript.Player2Alive = false;
+                    }
+                    else if (PlayerPlace[2].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(3);
-                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == tempx + "," + (int)pos.z)
+                        generateTerrainScript.Player3Alive = false;
+                    }
+                    else if (PlayerPlace[3].ToString() == tempx + "," + (int)pos.z) {
                         DestroyPlayer(4);
+                        generateTerrainScript.Player4Alive = false;
+                    }
                 }
                 else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
@@ -145,14 +175,22 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains((int)pos.x + "," + tempy)) {
                     //Kill Player
                     Debug.Log("PlayerHit Up");
-                    if (PlayerPlace[0].ToString() == (int)pos.x + "," + tempy)
+                    if (PlayerPlace[0].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1].ToString() == (int)pos.x + "," + tempy)
+                        generateTerrainScript.Player1Alive = false;
+                    }
+                    else if (PlayerPlace[1].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(2);
-                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == (int)pos.x + "," + tempy)
+                        generateTerrainScript.Player2Alive = false;
+                    }
+                    else if (PlayerPlace[2].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(3);
-                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == (int)pos.x + "," + tempy)
+                        generateTerrainScript.Player3Alive = false;
+                    }
+                    else if (PlayerPlace[3].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(4);
+                        generateTerrainScript.Player4Alive = false;
+                    }
                 }
                 else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
@@ -172,14 +210,22 @@ public class BombScript : MonoBehaviour {
                 else if (PlayerPlace.Contains((int)pos.x + "," + tempy)) {
                     //Kill Player
                     Debug.Log("PlayerHit Down");
-                    if (PlayerPlace[0].ToString() == (int)pos.x + "," + tempy)
+                    if (PlayerPlace[0].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(1);
-                    else if (PlayerPlace[1].ToString() == (int)pos.x + "," + tempy)
+                        generateTerrainScript.Player1Alive = false;
+                    }
+                    else if (PlayerPlace[1].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(2);
-                    else if (generateTerrainScript.NbPlayers >= 3 && PlayerPlace[2].ToString() == (int)pos.x + "," + tempy)
+                        generateTerrainScript.Player2Alive = false;
+                    }
+                    else if (PlayerPlace[2].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(3);
-                    else if (generateTerrainScript.NbPlayers == 4 && PlayerPlace[3].ToString() == (int)pos.x + "," + tempy)
+                        generateTerrainScript.Player3Alive = false;
+                    }
+                    else if (PlayerPlace[3].ToString() == (int)pos.x + "," + tempy) {
                         DestroyPlayer(4);
+                        generateTerrainScript.Player4Alive = false;
+                    }
                 }
                 else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch

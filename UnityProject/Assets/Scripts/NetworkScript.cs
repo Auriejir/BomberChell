@@ -8,7 +8,12 @@ public class NetworkScript : MonoBehaviour {
     private bool serv = false;
     private bool client = false;
     private bool option = false;
-    public float hSliderValue = 0.5F;
+
+    private float hSliderValue = 0.5F;
+    public float HSliderValue {
+        get { return hSliderValue; }
+        set { hSliderValue = value; }
+    }
 
     void OnStart() {
         audio.Play();
@@ -83,6 +88,7 @@ public class NetworkScript : MonoBehaviour {
                 }
                 if (GUI.Button(new Rect(30, 110, 100, 25), "New Game")) {
                     Application.LoadLevel(0);
+                    audio.volume = hSliderValue;
                     GameObject origin = GameObject.Find("Origin");
                     GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
                     generateTerrainScript.MyNetworkView.RPC("Generate", RPCMode.Server, Network.connections.Length);
