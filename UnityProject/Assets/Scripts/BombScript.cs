@@ -17,6 +17,13 @@ public class BombScript : MonoBehaviour {
         set { myTimer = value; }
     }
 
+    [SerializeField]
+    private GameObject _fire;
+    public GameObject Fire {
+        get { return _fire; }
+        set { _fire = value; }
+    }
+
     private GameObject origin;
     private GenerateTerrainScript generateTerrainScript;
     private bool done = false;
@@ -91,10 +98,13 @@ public class BombScript : MonoBehaviour {
         int tempx;
 
         print("Bomb : " + (int)pos.x + "," + (int)pos.z);
-
+        GameObject expl = Instantiate(Fire, new Vector3(pos.x, 1, pos.z), Quaternion.identity) as GameObject;
+        Destroy(expl, 1); 
         for (int i = 0; i <= PowerBomb; i++) {
             tempx = (int)pos.x + i;
             if (left) {
+                expl = Instantiate(Fire, new Vector3(tempx, 1, pos.z), Quaternion.identity) as GameObject;
+                Destroy(expl, 1); 
                 print("Right : " + tempx + "," + (int)pos.z);
                 if (boxp.Contains(tempx + "," + (int)pos.z)) {
                     //Delete Box
@@ -122,7 +132,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
+                else if (tempx == generateTerrainScript.TerrainSize || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Right");
                     left = false;
@@ -130,6 +140,8 @@ public class BombScript : MonoBehaviour {
             }
             tempx = (int)pos.x - i;
             if (right) {
+                expl = Instantiate(Fire, new Vector3(tempx, 1, pos.z), Quaternion.identity) as GameObject;
+                Destroy(expl, 1); 
                 print("Left : " + tempx + "," + (int)pos.z);
                 if (boxp.Contains(tempx + "," + (int)pos.z)) {
                     //Delete Box
@@ -157,7 +169,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if (tempx % 2 == 0 && (int)pos.z % 2 == 0) {
+                else if (tempx == generateTerrainScript.TerrainSize || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Left");
                     right = false;
@@ -165,6 +177,8 @@ public class BombScript : MonoBehaviour {
             }
             tempy = (int)pos.z + i;
             if (up) {
+                expl = Instantiate(Fire, new Vector3(pos.x, 1, tempy), Quaternion.identity) as GameObject;
+                Destroy(expl, 1); 
                 print("Up : " + (int)pos.x + "," + tempy);
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
@@ -192,7 +206,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
+                else if (tempy == generateTerrainScript.TerrainSize || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Up");
                     up = false;
@@ -200,6 +214,8 @@ public class BombScript : MonoBehaviour {
             }
             tempy = (int)pos.z - i;
             if (down) {
+                expl = Instantiate(Fire, new Vector3(pos.x, 1, tempy), Quaternion.identity) as GameObject;
+                Destroy(expl, 1); 
                 print("Down : " + (int)pos.x + "," + tempy);
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
@@ -227,7 +243,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if ((int)pos.x % 2 == 0 && tempy % 2 == 0) {
+                else if (tempy == generateTerrainScript.TerrainSize || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Down");
                     down = false;

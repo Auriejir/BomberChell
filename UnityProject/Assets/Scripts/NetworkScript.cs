@@ -21,6 +21,7 @@ public class NetworkScript : MonoBehaviour {
 
     void OnGUI() {
         Application.runInBackground = true;
+        audio.volume = hSliderValue;
         if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == false && option == false) {
             GUI.Box(new Rect(0, 0, 200, 150), "Main Menu");
             if (GUI.Button(new Rect(40, 30, 110, 25), "Start Client")) {
@@ -76,6 +77,8 @@ public class NetworkScript : MonoBehaviour {
                 GUI.Label(new Rect(30, 50, 100, 25), Network.player.ToString());
                 if (GUI.Button(new Rect(30, 70, 110, 25), "Logout")) {
                     Network.Disconnect(250);
+                    Application.LoadLevel(0);
+                    audio.volume = hSliderValue;
                 }
             }
             if (Network.peerType == NetworkPeerType.Server) {
@@ -85,10 +88,10 @@ public class NetworkScript : MonoBehaviour {
 
                 if (GUI.Button(new Rect(30, 75, 100, 25), "Logout")) {
                     Network.Disconnect(250);
-                }
-                if (GUI.Button(new Rect(30, 110, 100, 25), "New Game")) {
                     Application.LoadLevel(0);
                     audio.volume = hSliderValue;
+                }
+                if (GUI.Button(new Rect(30, 110, 100, 25), "New Game")) {
                     GameObject origin = GameObject.Find("Origin");
                     GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
                     generateTerrainScript.MyNetworkView.RPC("Generate", RPCMode.Server, Network.connections.Length);

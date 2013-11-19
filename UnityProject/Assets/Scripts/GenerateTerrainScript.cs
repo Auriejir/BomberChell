@@ -186,7 +186,6 @@ public class GenerateTerrainScript : MonoBehaviour {
             BoxPlace.Add(positionBox);
             GameObject box = (GameObject)Instantiate(Box, new Vector3(x, 1, y), Quaternion.identity);
             box.name = "Box " + x + "," + y;
-            box.renderer.material.color = Color.yellow;
             if (Network.isServer) {
                 MyNetworkView.RPC("CreateBox", RPCMode.Others, x, y);
             }
