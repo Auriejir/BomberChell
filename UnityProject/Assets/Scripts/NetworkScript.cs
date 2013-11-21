@@ -15,6 +15,15 @@ public class NetworkScript : MonoBehaviour {
         set { hSliderValue = value; }
     }
 
+    private int nbPlayer = 1;
+    public int NbPlayer {
+        get { return nbPlayer; }
+        set { nbPlayer = value; }
+    }
+
+    private int temp = 1;
+    private string playerField = "1";
+
     void OnStart() {
         audio.Play();
     }
@@ -60,7 +69,7 @@ public class NetworkScript : MonoBehaviour {
             }
         }
         else if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == false && option == true) {
-            GUI.Box(new Rect(0, 0, 200, 90), "Volume"); 
+            GUI.Box(new Rect(0, 0, 200, 90), "Volume");
             GUI.Label(new Rect(25, 25, 100, 25), "Music");
             hSliderValue = GUI.HorizontalSlider(new Rect(30, 45, 100, 30), hSliderValue, 0.0F, 1.0F);
             audio.volume = hSliderValue;
@@ -82,7 +91,7 @@ public class NetworkScript : MonoBehaviour {
                 }
             }
             if (Network.peerType == NetworkPeerType.Server) {
-                GUI.Box(new Rect(0, 0, 200, 150), "Server Menu");
+                GUI.Box(new Rect(0, 0, 200, 200), "Server Menu");
                 GUI.Label(new Rect(30, 30, 100, 25), "Server");
                 GUI.Label(new Rect(30, 55, 100, 25), "Connections: " + Network.connections.Length);
 
@@ -93,9 +102,15 @@ public class NetworkScript : MonoBehaviour {
                 }
                 if (GUI.Button(new Rect(30, 110, 100, 25), "New Game")) {
                     GameObject origin = GameObject.Find("Origin");
+                    NbPlayer = Mathf.Clamp(temp, 1, 4);
                     GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
-                    generateTerrainScript.MyNetworkView.RPC("Generate", RPCMode.Server, Network.connections.Length);
+                    generateTerrainScript.MyNetworkView.RPC("Generate", RPCMode.Server, Network.connections.Length, NbPlayer);
 
+                }
+                GUI.Label(new Rect(30, 140, 130, 25), "Number of players");
+                playerField = GUI.TextArea(new Rect(30, 160, 100, 20), playerField);
+                if (int.TryParse(playerField, out temp)) {
+                    NbPlayer = temp;
                 }
             }
         }

@@ -11,11 +11,16 @@ public class GenerateTerrainScript : MonoBehaviour {
         set { _terrainSize = value; }
     }
 
-    [SerializeField]
-    private int _nbPlayers = 2;
-    public int NbPlayers {
-        get { return _nbPlayers; }
-        set { _nbPlayers = value; }
+    private int _nbPlayersHuman = 2;
+    public int NbPlayersHuman {
+        get { return _nbPlayersHuman; }
+        set { _nbPlayersHuman = value; }
+    }
+
+    private int _nbPlayersIA = 2;
+    public int NbPlayersIA {
+        get { return _nbPlayersIA; }
+        set { _nbPlayersIA = value; }
     }
 
     [SerializeField]
@@ -37,6 +42,13 @@ public class GenerateTerrainScript : MonoBehaviour {
     public GameObject Player {
         get { return _player; }
         set { _player = value; }
+    }
+
+    [SerializeField]
+    private GameObject _com;
+    public GameObject COM {
+        get { return _com; }
+        set { _com = value; }
     }
 
     ArrayList _boxPlace = new ArrayList();
@@ -97,12 +109,14 @@ public class GenerateTerrainScript : MonoBehaviour {
     }
 
     [RPC]
-    private void Generate(int nbPlayer) {
-        NbPlayers = nbPlayer;
+    private void Generate(int nbPlayerHuman, int nbPlayerTot) {
+        NbPlayersHuman = nbPlayerHuman;
+        NbPlayersIA = nbPlayerTot - NbPlayersHuman;
         MyNetworkView.RPC("CreateLight", RPCMode.Server, 0, 5, 0);
         MyNetworkView.RPC("PlacePlayer", RPCMode.Server);
+        MyNetworkView.RPC("PlaceCOM", RPCMode.Server, nbPlayerHuman, nbPlayerTot - nbPlayerHuman);
         //Switch to determine special square
-        switch (NbPlayers) {
+        switch (nbPlayerTot) {
             case 1:
                 startCase = new int[] { 1, 1, 1, 2, 2, 1 };
                 MyNetworkView.RPC("PlayerState", RPCMode.All, 1);
@@ -237,6 +251,38 @@ public class GenerateTerrainScript : MonoBehaviour {
         }
         if (Network.isServer) {
             MyNetworkView.RPC("PlacePlayer", RPCMode.Others);
+        }
+    }
+
+    [RPC]
+    void PlaceCOM(int humans, int coms) {
+        switch (coms) {
+            case 1:
+                if (humans == 1) {
+                    Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity, 0);
+                }
+                else if (humans == 2) {
+                    Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, 1), Quaternion.identity, 0);
+                }
+                else if (humans == 3) {
+                    Network.Instantiate(COM, new Vector3(1, 1, TerrainSize - 2), Quaternion.identity, 0);
+                }
+                break;
+            case 2:
+                if (humans == 1) {
+                    Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity, 0);
+                    Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, 1), Quaternion.identity, 0);
+                }
+                else if (humans == 2) {
+                    Network.Instantiate(COM, new Vector3(1, 1, TerrainSize - 2), Quaternion.identity, 0);
+                    Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, 1), Quaternion.identity, 0);
+                }
+                break;
+            case 3:
+                Network.Instantiate(COM, new Vector3(1, 1, TerrainSize - 2), Quaternion.identity, 0);
+                Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, 1), Quaternion.identity, 0);
+                Network.Instantiate(COM, new Vector3(TerrainSize - 2, 1, TerrainSize - 2), Quaternion.identity,0);
+                break;
         }
     }
 }
