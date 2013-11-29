@@ -47,15 +47,15 @@ public class characterScript : MonoBehaviour {
           if (GameObject.Find("Player1")) DestroyObject(gameObject);
           else gameObject.name = "Player1";
       }
-      if (form.position.x == generateTerrainScript.TerrainSize - 2 && form.position.z == generateTerrainScript.TerrainSize - 2) {
+      if (form.position.x == generateTerrainScript.TerrainX - 2 && form.position.z == generateTerrainScript.TerrainZ - 2) {
           if (GameObject.Find("Player2")) DestroyObject(gameObject);
           else gameObject.name = "Player2";
       }
-      if (form.position.x == 1 && form.position.z == generateTerrainScript.TerrainSize - 2) {
+      if (form.position.x == 1 && form.position.z == generateTerrainScript.TerrainZ - 2) {
           if (GameObject.Find("Player3")) DestroyObject(gameObject);
           else gameObject.name = "Player3";
       }
-      if (form.position.x == generateTerrainScript.TerrainSize - 2 && form.position.z == 1) {
+      if (form.position.x == generateTerrainScript.TerrainX - 2 && form.position.z == 1) {
           if (GameObject.Find("Player4")) DestroyObject(gameObject);
           else gameObject.name = "Player4";
       }

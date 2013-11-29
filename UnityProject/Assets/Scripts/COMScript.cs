@@ -34,15 +34,15 @@ public class COMScript : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (form.position.x > generateTerrainScript.TerrainSize) {
-            form.position = new Vector3(generateTerrainScript.TerrainSize - 1, 1, form.position.z);
+        if (form.position.x > generateTerrainScript.TerrainX) {
+            form.position = new Vector3(generateTerrainScript.TerrainX - 1, 1, form.position.z);
         }
         else if (form.position.x < 0) {
             form.position = new Vector3(1, 1, form.position.z);
         }
 
-        if (form.position.z > generateTerrainScript.TerrainSize) {
-            form.position = new Vector3(form.position.x, 1, generateTerrainScript.TerrainSize - 1);
+        if (form.position.z > generateTerrainScript.TerrainZ) {
+            form.position = new Vector3(form.position.x, 1, generateTerrainScript.TerrainZ - 1);
         }
         else if (form.position.x < 0) {
             form.position = new Vector3(form.position.x, 1, 1);
@@ -58,10 +58,10 @@ public class COMScript : MonoBehaviour {
         Vector3 target = Vector3.zero;
         switch (choice) {
             case 0:
-                target = new Vector3(Random.Range(0, generateTerrainScript.TerrainSize - 1), 1, 0);
+                target = new Vector3(Random.Range(0, generateTerrainScript.TerrainX - 1), 1, 0);
                 break;
             case 1:
-                target = new Vector3(0, 1, Random.Range(0, generateTerrainScript.TerrainSize - 1));
+                target = new Vector3(0, 1, Random.Range(0, generateTerrainScript.TerrainZ - 1));
                 break;
         }
         return target;

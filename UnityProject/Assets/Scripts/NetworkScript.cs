@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class NetworkScript : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class NetworkScript : MonoBehaviour {
     private bool serv = false;
     private bool client = false;
     private bool option = false;
+    private bool load = false;
 
     private float hSliderValue = 0.5F;
     public float HSliderValue {
@@ -31,7 +33,7 @@ public class NetworkScript : MonoBehaviour {
     void OnGUI() {
         Application.runInBackground = true;
         audio.volume = hSliderValue;
-        if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == false && option == false) {
+        if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == false && option == false && load == false) {
             GUI.Box(new Rect(0, 0, 200, 150), "Main Menu");
             if (GUI.Button(new Rect(40, 30, 110, 25), "Start Client")) {
                 client = true;
@@ -46,7 +48,7 @@ public class NetworkScript : MonoBehaviour {
                 Application.Quit();
             }
         }
-        else if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == true && option == false) {
+        else if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == true && option == false && load == false) {
             GUI.Box(new Rect(0, 0, 200, 120), "Server Menu");
             Port = GUI.TextArea(new Rect(30, 30, 110, 20), Port);
             if (GUI.Button(new Rect(30, 60, 110, 25), "Initialize Server")) {
@@ -57,7 +59,7 @@ public class NetworkScript : MonoBehaviour {
                 serv = false;
             }
         }
-        else if (Network.peerType == NetworkPeerType.Disconnected && client == true && serv == false && option == false) {
+        else if (Network.peerType == NetworkPeerType.Disconnected && client == true && serv == false && option == false && load == false) {
             GUI.Box(new Rect(0, 0, 200, 160), "Login Menu");
             Port = GUI.TextArea(new Rect(30, 30, 110, 20), Port);
             Ip = GUI.TextArea(new Rect(30, 60, 110, 20), Ip);
@@ -68,7 +70,7 @@ public class NetworkScript : MonoBehaviour {
                 client = false;
             }
         }
-        else if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == false && option == true) {
+        else if (Network.peerType == NetworkPeerType.Disconnected && client == false && serv == false && option == true && load == false) {
             GUI.Box(new Rect(0, 0, 200, 90), "Volume");
             GUI.Label(new Rect(25, 25, 100, 25), "Music");
             hSliderValue = GUI.HorizontalSlider(new Rect(30, 45, 100, 30), hSliderValue, 0.0F, 1.0F);
@@ -90,8 +92,8 @@ public class NetworkScript : MonoBehaviour {
                     audio.volume = hSliderValue;
                 }
             }
-            if (Network.peerType == NetworkPeerType.Server) {
-                GUI.Box(new Rect(0, 0, 200, 200), "Server Menu");
+            if (Network.peerType == NetworkPeerType.Server && load == false) {
+                GUI.Box(new Rect(0, 0, 200, 220), "Server Menu");
                 GUI.Label(new Rect(30, 30, 100, 25), "Server");
                 GUI.Label(new Rect(30, 55, 100, 25), "Connections: " + Network.connections.Length);
 
@@ -107,10 +109,36 @@ public class NetworkScript : MonoBehaviour {
                     generateTerrainScript.MyNetworkView.RPC("Generate", RPCMode.Server, Network.connections.Length, NbPlayer);
 
                 }
-                GUI.Label(new Rect(30, 140, 130, 25), "Number of players");
-                playerField = GUI.TextArea(new Rect(30, 160, 100, 20), playerField);
+                if (GUI.Button(new Rect(30, 140, 100, 25), "Load")) {
+                    load = true;
+                }
+                GUI.Label(new Rect(30, 170, 130, 25), "Number of players");
+                playerField = GUI.TextArea(new Rect(30, 190, 100, 20), playerField);
                 if (int.TryParse(playerField, out temp)) {
                     NbPlayer = temp;
+                }
+            }
+            else if (Network.peerType == NetworkPeerType.Server && load == true) {
+                if (GUI.Button(new Rect(30, 45, 110, 25), "Back")) {
+                    load = false;
+                }
+                var info = new DirectoryInfo(Application.dataPath);
+                var fileInfo = info.GetFiles();
+                ArrayList levelTab = new ArrayList();
+                for (int file = 0; file < fileInfo.Length; file++) {
+                    if (fileInfo[file].Extension.ToString().Equals(".txt")) {
+                        levelTab.Add(Path.GetFileName(fileInfo[file].ToString()));
+                    }
+                }
+                GUI.Box(new Rect(0, 0, 150, 50 + 50 * levelTab.Count), "Niveaux");
+
+                for (int i = 0; i < levelTab.Count; i++) {
+                    if (GUI.Button(new Rect(30, 80 + i * 30, 110, 25), levelTab[i].ToString())) {
+                        GameObject origin = GameObject.Find("Origin");
+                        NbPlayer = Mathf.Clamp(temp, 1, 4);
+                        GenerateTerrainScript generateTerrainScript = origin.GetComponent<GenerateTerrainScript>();
+                        generateTerrainScript.MyNetworkView.RPC("Load", RPCMode.Server, Network.connections.Length, NbPlayer, levelTab[i].ToString());
+                    }
                 }
             }
         }

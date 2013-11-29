@@ -132,7 +132,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if (tempx == generateTerrainScript.TerrainSize || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
+                else if (tempx == generateTerrainScript.TerrainX || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Right");
                     left = false;
@@ -169,7 +169,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if (tempx == generateTerrainScript.TerrainSize || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
+                else if (tempx == generateTerrainScript.TerrainX || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Left");
                     right = false;
@@ -206,7 +206,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if (tempy == generateTerrainScript.TerrainSize || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
+                else if (tempy == generateTerrainScript.TerrainZ || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Up");
                     up = false;
@@ -243,7 +243,7 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
-                else if (tempy == generateTerrainScript.TerrainSize || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
+                else if (tempy == generateTerrainScript.TerrainZ || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Down");
                     down = false;
