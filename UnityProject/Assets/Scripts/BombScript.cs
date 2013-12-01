@@ -56,10 +56,6 @@ public class BombScript : MonoBehaviour {
         Vector3 pos = form.position;
         boxp = generateTerrainScript.BoxPlace;
         ArrayList PlayerPlace = new ArrayList();
-        print(generateTerrainScript.Player1Alive);
-        print(generateTerrainScript.Player2Alive);
-        print(generateTerrainScript.Player3Alive);
-        print(generateTerrainScript.Player4Alive);
         if (generateTerrainScript.Player1Alive) {
             GameObject player1 = GameObject.Find("Player1");
             characterScript p1 = player1.GetComponent<characterScript>();
