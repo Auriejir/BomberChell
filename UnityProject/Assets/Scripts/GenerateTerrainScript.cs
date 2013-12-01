@@ -6,12 +6,12 @@ public class GenerateTerrainScript : MonoBehaviour {
 
     #region Variables
 
-	[SerializeField]
-  private GameObject[] portals;
-	public GameObject[] Portals {
-		get { return portals; }
-		set { portals = value; }
-	}
+    [SerializeField]
+    private GameObject[] portals;
+    public GameObject[] Portals {
+        get { return portals; }
+        set { portals = value; }
+    }
 
     [SerializeField]
     private int _terrainX = 15;
@@ -40,7 +40,7 @@ public class GenerateTerrainScript : MonoBehaviour {
         get { return _box; }
         set { _box = value; }
     }
-	
+
     [SerializeField]
     private GameObject _portal;
     public GameObject Portal {
@@ -98,6 +98,24 @@ public class GenerateTerrainScript : MonoBehaviour {
         set { player4Alive = value; }
     }
 
+    private bool com1Alive = false;
+    public bool Com1Alive {
+        get { return com1Alive; }
+        set { com1Alive = value; }
+    }
+
+    private bool com2Alive = false;
+    public bool Com2Alive {
+        get { return com2Alive; }
+        set { com2Alive = value; }
+    }
+
+    private bool com3Alive = false;
+    public bool Com3Alive {
+        get { return com3Alive; }
+        set { com3Alive = value; }
+    }
+
     private int height;
     private int width;
 
@@ -117,7 +135,7 @@ public class GenerateTerrainScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         MyNetworkView = this.gameObject.GetComponent<NetworkView>();
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             Portals[i] = (GameObject)Instantiate(Portal, new Vector3(0, -2, 0), Quaternion.identity);
             Portals[i].SetActive(false);
         }
@@ -125,7 +143,7 @@ public class GenerateTerrainScript : MonoBehaviour {
 
     [RPC]
     private void Load(int nbPlayerHuman, int nbPlayerTot, string level) {
-        switch (nbPlayerTot) {
+        switch (nbPlayerHuman) {
             case 1:
                 MyNetworkView.RPC("PlayerState", RPCMode.All, 1);
                 break;
@@ -139,6 +157,17 @@ public class GenerateTerrainScript : MonoBehaviour {
                 MyNetworkView.RPC("PlayerState", RPCMode.All, 4);
                 break;
         }
+        switch (nbPlayerTot - nbPlayerHuman) {
+            case 1:
+                MyNetworkView.RPC("ComState", RPCMode.All, 1);
+                break;
+            case 2:
+                MyNetworkView.RPC("ComState", RPCMode.All, 2);
+                break;
+            case 3:
+                MyNetworkView.RPC("ComState", RPCMode.All, 3);
+                break;
+        }
         MyNetworkView.RPC("Read", RPCMode.Server, nbPlayerHuman, nbPlayerTot - nbPlayerHuman, level);
     }
 
@@ -148,7 +177,7 @@ public class GenerateTerrainScript : MonoBehaviour {
         MyNetworkView.RPC("PlacePlayer", RPCMode.Server);
         MyNetworkView.RPC("PlaceCOM", RPCMode.Server, nbPlayerHuman, nbPlayerTot - nbPlayerHuman);
         //Switch to determine special square
-        switch (nbPlayerTot) {
+        switch (nbPlayerHuman) {
             case 1:
                 startCase = new int[] { 1, 1, 1, 2, 2, 1 };
                 MyNetworkView.RPC("PlayerState", RPCMode.All, 1);
@@ -170,6 +199,37 @@ public class GenerateTerrainScript : MonoBehaviour {
                                        TerrainX-2,1,TerrainX-3,1,TerrainX-2,2,
                                        1,TerrainZ-2,1,TerrainZ-3,2,TerrainZ-2};
                 MyNetworkView.RPC("PlayerState", RPCMode.All, 4);
+                break;
+        }
+        switch (nbPlayerTot - nbPlayerHuman) {
+            case 1:
+                MyNetworkView.RPC("ComState", RPCMode.All, 1);
+                break;
+            case 2:
+                MyNetworkView.RPC("ComState", RPCMode.All, 2);
+                break;
+            case 3:
+                MyNetworkView.RPC("ComState", RPCMode.All, 3);
+                break;
+        }
+        switch (nbPlayerTot) {
+            case 1:
+                startCase = new int[] { 1, 1, 1, 2, 2, 1 };
+                break;
+            case 2:
+                startCase = new int[]{1,1,1,2,2,1,
+                                       TerrainX-2,TerrainZ-2,TerrainX-3,TerrainZ-2,TerrainX-2,TerrainZ-3};
+                break;
+            case 3:
+                startCase = new int[]{1,1,1,2,2,1,
+                                       TerrainX-2,TerrainZ-2,TerrainX-3,TerrainZ-2,TerrainX-2,TerrainZ-3,
+                                       TerrainX-2,1,TerrainZ-3,1,TerrainX-2,2};
+                break;
+            case 4:
+                startCase = new int[]{1,1,1,2,2,1,
+                                       TerrainX-2,TerrainZ-2,TerrainX-3,TerrainZ-2,TerrainX-2,TerrainZ-3,
+                                       TerrainX-2,1,TerrainX-3,1,TerrainX-2,2,
+                                       1,TerrainZ-2,1,TerrainZ-3,2,TerrainZ-2};
                 break;
         }
         for (height = 0; height < TerrainZ; height++) {
@@ -221,6 +281,22 @@ public class GenerateTerrainScript : MonoBehaviour {
             Player2Alive = true;
             Player3Alive = true;
             Player4Alive = true;
+        }
+    }
+
+    [RPC]
+    void ComState(int number) {
+        if (number == 1) {
+            Com1Alive = true;
+        }
+        else if (number == 2) {
+            Com1Alive = true;
+            Com2Alive = true;
+        }
+        else {
+            Com1Alive = true;
+            Com2Alive = true;
+            Com3Alive = true;
         }
     }
 
@@ -291,29 +367,39 @@ public class GenerateTerrainScript : MonoBehaviour {
         switch (coms) {
             case 1:
                 if (humans == 1) {
-                    Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, TerrainZ - 2), Quaternion.identity, 0);
+                   GameObject com = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, TerrainZ - 2), Quaternion.identity, 0);
+                   com.name = "COM1";
                 }
                 else if (humans == 2) {
-                    Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                    GameObject com = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                    com.name = "COM1";
                 }
                 else if (humans == 3) {
-                    Network.Instantiate(COM, new Vector3(1, 1, TerrainZ - 2), Quaternion.identity, 0);
+                    GameObject com = (GameObject)Network.Instantiate(COM, new Vector3(1, 1, TerrainZ - 2), Quaternion.identity, 0);
+                    com.name = "COM1";
                 }
                 break;
             case 2:
                 if (humans == 1) {
-                    Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, TerrainZ - 2), Quaternion.identity, 0);
-                    Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                    GameObject com1 = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, TerrainZ - 2), Quaternion.identity, 0);
+                    com1.name = "COM1";
+                    GameObject com2 = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                    com2.name = "COM2";
                 }
                 else if (humans == 2) {
-                    Network.Instantiate(COM, new Vector3(1, 1, TerrainZ - 2), Quaternion.identity, 0);
-                    Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                    GameObject com1 = (GameObject)Network.Instantiate(COM, new Vector3(1, 1, TerrainZ - 2), Quaternion.identity, 0);
+                    com1.name = "COM1";
+                    GameObject com2 = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                    com2.name = "COM2";
                 }
                 break;
             case 3:
-                Network.Instantiate(COM, new Vector3(1, 1, TerrainZ - 2), Quaternion.identity, 0);
-                Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
-                Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, TerrainZ - 2), Quaternion.identity, 0);
+                GameObject com11 = (GameObject)Network.Instantiate(COM, new Vector3(1, 1, TerrainZ - 2), Quaternion.identity, 0);
+                com11.name = "COM1";
+                GameObject com21 = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, 1), Quaternion.identity, 0);
+                com21.name = "COM2";
+                GameObject com3 = (GameObject)Network.Instantiate(COM, new Vector3(TerrainX - 2, 1, TerrainZ - 2), Quaternion.identity, 0);
+                com3.name = "COM3";
                 break;
         }
     }

@@ -10,6 +10,12 @@ public class COMScript : MonoBehaviour {
         set { _orientation = Mathf.Clamp(value, 0, 360); }
     }
 
+    private int[] position = new int[2];
+    public int[] Position {
+        get { return position; }
+        set { position = value; }
+    }
+
     bool change;
     float range;
     Vector3 target;
@@ -34,6 +40,8 @@ public class COMScript : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        Position[0] = (int)Mathf.Round(form.position.x);
+        Position[1] = (int)Mathf.Round(form.position.z);
         if (form.position.x > generateTerrainScript.TerrainX) {
             form.position = new Vector3(generateTerrainScript.TerrainX - 1, 1, form.position.z);
         }

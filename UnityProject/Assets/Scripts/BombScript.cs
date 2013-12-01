@@ -56,10 +56,12 @@ public class BombScript : MonoBehaviour {
         Vector3 pos = form.position;
         boxp = generateTerrainScript.BoxPlace;
         ArrayList PlayerPlace = new ArrayList();
+        ArrayList ComPlace = new ArrayList();
         if (generateTerrainScript.Player1Alive) {
             GameObject player1 = GameObject.Find("Player1");
             characterScript p1 = player1.GetComponent<characterScript>();
             PlayerPlace.Add(p1.Position[0] + "," + p1.Position[1]);
+            Debug.Log(p1.Position[0] + "," + p1.Position[1]);
         }
         else {
             PlayerPlace.Add("aurix , jojo");
@@ -89,18 +91,43 @@ public class BombScript : MonoBehaviour {
             PlayerPlace.Add("aurix , jojo");
         }
 
+        if (generateTerrainScript.Com1Alive) {
+            GameObject com1 = GameObject.Find("COM1");
+            COMScript c1 = com1.GetComponent<COMScript>();
+            ComPlace.Add(c1.Position[0] + "," + c1.Position[1]);
+        }
+        else {
+            ComPlace.Add("aurix , jojo");
+        }
+        if (generateTerrainScript.Com1Alive) {
+            GameObject com2 = GameObject.Find("COM2");
+            COMScript c2 = com2.GetComponent<COMScript>();
+            ComPlace.Add(c2.Position[0] + "," + c2.Position[1]);
+        }
+        else {
+            ComPlace.Add("aurix , jojo");
+        }
+        if (generateTerrainScript.Com3Alive) {
+            GameObject com3 = GameObject.Find("COM3");
+            COMScript c3 = com3.GetComponent<COMScript>();
+            ComPlace.Add(c3.Position[0] + "," + c3.Position[1]);
+        }
+        else {
+            ComPlace.Add("aurix , jojo");
+        }
+
         bool up = true, down = true, left = true, right = true;
         int tempy;
         int tempx;
 
         print("Bomb : " + (int)pos.x + "," + (int)pos.z);
         GameObject expl = Instantiate(Fire, new Vector3(pos.x, 1, pos.z), Quaternion.identity) as GameObject;
-        Destroy(expl, 1); 
+        Destroy(expl, 1);
         for (int i = 0; i <= PowerBomb; i++) {
             tempx = (int)pos.x + i;
             if (left) {
                 expl = Instantiate(Fire, new Vector3(tempx, 1, pos.z), Quaternion.identity) as GameObject;
-                Destroy(expl, 1); 
+                Destroy(expl, 1);
                 print("Right : " + tempx + "," + (int)pos.z);
                 if (boxp.Contains(tempx + "," + (int)pos.z)) {
                     //Delete Box
@@ -128,6 +155,20 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
+                else if (ComPlace.Contains(tempx + "," + (int)pos.z)) {
+                    if (ComPlace[0].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(1);
+                        generateTerrainScript.Com1Alive = false;
+                    }
+                    else if (ComPlace[1].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(2);
+                        generateTerrainScript.Com2Alive = false;
+                    }
+                    else if (ComPlace[2].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(3);
+                        generateTerrainScript.Com3Alive = false;
+                    }
+                }
                 else if (tempx == generateTerrainScript.TerrainX || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Right");
@@ -137,7 +178,7 @@ public class BombScript : MonoBehaviour {
             tempx = (int)pos.x - i;
             if (right) {
                 expl = Instantiate(Fire, new Vector3(tempx, 1, pos.z), Quaternion.identity) as GameObject;
-                Destroy(expl, 1); 
+                Destroy(expl, 1);
                 print("Left : " + tempx + "," + (int)pos.z);
                 if (boxp.Contains(tempx + "," + (int)pos.z)) {
                     //Delete Box
@@ -165,6 +206,20 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
+                else if (ComPlace.Contains(tempx + "," + (int)pos.z)) {
+                    if (ComPlace[0].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(1);
+                        generateTerrainScript.Com1Alive = false;
+                    }
+                    else if (ComPlace[1].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(2);
+                        generateTerrainScript.Com2Alive = false;
+                    }
+                    else if (ComPlace[2].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(3);
+                        generateTerrainScript.Com3Alive = false;
+                    }
+                }
                 else if (tempx == generateTerrainScript.TerrainX || tempx % 2 == 0 && (int)pos.z % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Left");
@@ -174,7 +229,7 @@ public class BombScript : MonoBehaviour {
             tempy = (int)pos.z + i;
             if (up) {
                 expl = Instantiate(Fire, new Vector3(pos.x, 1, tempy), Quaternion.identity) as GameObject;
-                Destroy(expl, 1); 
+                Destroy(expl, 1);
                 print("Up : " + (int)pos.x + "," + tempy);
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
@@ -202,6 +257,20 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
+                else if (ComPlace.Contains((int)pos.x + "," + tempy)) {
+                    if (ComPlace[0].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(1);
+                        generateTerrainScript.Com1Alive = false;
+                    }
+                    else if (ComPlace[1].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(2);
+                        generateTerrainScript.Com2Alive = false;
+                    }
+                    else if (ComPlace[2].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(3);
+                        generateTerrainScript.Com3Alive = false;
+                    }
+                }
                 else if (tempy == generateTerrainScript.TerrainZ || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Up");
@@ -211,7 +280,7 @@ public class BombScript : MonoBehaviour {
             tempy = (int)pos.z - i;
             if (down) {
                 expl = Instantiate(Fire, new Vector3(pos.x, 1, tempy), Quaternion.identity) as GameObject;
-                Destroy(expl, 1); 
+                Destroy(expl, 1);
                 print("Down : " + (int)pos.x + "," + tempy);
                 if (boxp.Contains((int)pos.x + "," + tempy)) {
                     //Delete Box
@@ -239,6 +308,20 @@ public class BombScript : MonoBehaviour {
                         generateTerrainScript.Player4Alive = false;
                     }
                 }
+                else if (ComPlace.Contains((int)pos.x + "," + tempy)) {
+                    if (ComPlace[0].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(1);
+                        generateTerrainScript.Com1Alive = false;
+                    }
+                    else if (ComPlace[1].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(2);
+                        generateTerrainScript.Com2Alive = false;
+                    }
+                    else if (ComPlace[2].ToString() == tempx + "," + (int)pos.z) {
+                        DestroyCom(3);
+                        generateTerrainScript.Com3Alive = false;
+                    }
+                }
                 else if (tempy == generateTerrainScript.TerrainZ || (int)pos.x % 2 == 0 && tempy % 2 == 0) {
                     //Wall Touch
                     Debug.Log("WallHit Down");
@@ -257,6 +340,11 @@ public class BombScript : MonoBehaviour {
 
     void DestroyPlayer(int number) {
         GameObject player = GameObject.Find("Player" + number);
+        DestroyObject(player);
+    }
+
+    void DestroyCom(int number) {
+        GameObject player = GameObject.Find("COM" + number);
         DestroyObject(player);
     }
 

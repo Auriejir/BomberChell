@@ -103,7 +103,7 @@ public class characterScript : MonoBehaviour {
 
   [RPC]
   void shootPortal(int newPortalIndex) {
-    GameObject portalAmo = ((Transform)Instantiate(Bullet, new Vector3(form.position.x + Mathf.Sin(Orientation), 0.5f, form.position.z - Mathf.Cos(Orientation)), Quaternion.identity)).gameObject;
+    GameObject portalAmo = GameObject.Instantiate(Bullet, new Vector3(form.position.x + Mathf.Sin(Orientation), 0.5f, form.position.z - Mathf.Cos(Orientation)), Quaternion.identity) as GameObject;
     Debug.Log(portalAmo);
     BulletScript portalAmoScript = (BulletScript)portalAmo.GetComponent("BulletScript");
     portalAmoScript.portalIndex = newPortalIndex;
