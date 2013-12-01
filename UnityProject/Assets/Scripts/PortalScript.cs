@@ -2,33 +2,32 @@
 using System.Collections;
 
 public class PortalScript : MonoBehaviour {
+ 
+  //private Transform thisPortal;
+  private Transform linkedPortal;
+
+  private int linkedPortalIndex;
+	
+  private GenerateTerrainScript generateTerrainScript;
 
   [SerializeField]
-  private char _orientation;
-  public char Orientation {
-    get{return _orientation;}
-    set{_orientation = value;}
+  private int _portalIndex;
+  public int PortalIndex {
+    get { return _portalIndex; }
+    set { _portalIndex = Mathf.Clamp(value, 0, 9); }
   }
-  [SerializeField]
-  private GameObject _owner;
-  public GameObject Owner {
-    get{return _owner;}
-    set{_owner = value;}
-  }
-  [SerializeField]
-  private int _type;
-  public int Type {
-    get{return _type;}
-    set{_type = value;}
+
+  // Use this for initialization
+  void Start () {
+    //thisPortal = this.gameObject.transform;
+    linkedPortalIndex = PortalIndex + (1 - (2 * (PortalIndex % 2)));
   }
   
-	// Use this for initialization
-	void Start () {
-    
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    
-	}
+  void OnTriggerEnter(Collider other) {
+    if (generateTerrainScript.Portals[linkedPortalIndex].activeInHierarchy) {
+      if (linkedPortal==null) linkedPortal = generateTerrainScript.Portals[linkedPortalIndex].gameObject.transform;
+      other.gameObject.transform.position = new Vector3((int)Mathf.Round(linkedPortal.position.x), 0, (int)Mathf.Round(linkedPortal.position.z));
+    }
+  }
+
 }

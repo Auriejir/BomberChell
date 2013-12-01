@@ -5,6 +5,14 @@ using System.IO;
 public class GenerateTerrainScript : MonoBehaviour {
 
     #region Variables
+
+	[SerializeField]
+  private GameObject[] portals;
+	public GameObject[] Portals {
+		get { return portals; }
+		set { portals = value; }
+	}
+
     [SerializeField]
     private int _terrainX = 15;
     public int TerrainX {
@@ -31,6 +39,13 @@ public class GenerateTerrainScript : MonoBehaviour {
     public GameObject Box {
         get { return _box; }
         set { _box = value; }
+    }
+	
+    [SerializeField]
+    private GameObject _portal;
+    public GameObject Portal {
+        get { return _portal; }
+        set { _portal = value; }
     }
 
     [SerializeField]
@@ -102,6 +117,10 @@ public class GenerateTerrainScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         MyNetworkView = this.gameObject.GetComponent<NetworkView>();
+        for (int i=0;i<8;i++){
+            Portals[i] = (GameObject)Instantiate(Portal, new Vector3(0, -2, 0), Quaternion.identity);
+            Portals[i].SetActive(false);
+        }
     }
 
     [RPC]
