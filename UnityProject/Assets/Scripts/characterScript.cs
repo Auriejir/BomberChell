@@ -84,9 +84,9 @@ public class characterScript : MonoBehaviour {
   }
     
   void FixedUpdate() {
-    if (networkView.isMine) {
       Position[0] = (int)Mathf.Round(form.position.x);
       Position[1] = (int)Mathf.Round(form.position.z);
+    if (networkView.isMine) {
       if (keys[0] || keys[1] || keys[2] || keys[3]) {
         var resultVector = Vector3.zero;
         if (keys[0]) resultVector += Vector3.forward;
