@@ -8,7 +8,7 @@ public class PortalScript : MonoBehaviour {
 
   private int linkedPortalIndex;
 	
-  private GenerateTerrainScript generateTerrainScript;
+  private GenerateTerrainScript gts;
 
   [SerializeField]
   private int _portalIndex;
@@ -21,11 +21,13 @@ public class PortalScript : MonoBehaviour {
   void Start () {
     //thisPortal = this.gameObject.transform;
     linkedPortalIndex = PortalIndex + (1 - (2 * (PortalIndex % 2)));
+    GameObject ori = GameObject.Find("Origin");
+    gts = ori.GetComponent("GenerateTerrainScript") as GenerateTerrainScript;
   }
   
   void OnTriggerEnter(Collider other) {
-    if (generateTerrainScript.Portals[linkedPortalIndex].activeInHierarchy) {
-      if (linkedPortal==null) linkedPortal = generateTerrainScript.Portals[linkedPortalIndex].gameObject.transform;
+    if (gts.Portals[linkedPortalIndex].activeInHierarchy) {
+      if (linkedPortal==null) linkedPortal = gts.Portals[linkedPortalIndex].gameObject.transform;
       other.gameObject.transform.position = new Vector3((int)Mathf.Round(linkedPortal.position.x), 0, (int)Mathf.Round(linkedPortal.position.z));
     }
   }

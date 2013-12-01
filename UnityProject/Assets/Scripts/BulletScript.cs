@@ -10,18 +10,22 @@ public class BulletScript : MonoBehaviour {
   [SerializeField]
   public float shooterOrientation;
 
-  GenerateTerrainScript gts;
+  GameObject ori;
 
 	// Use this for initialization
 	void Start () {
-
+    ori = GameObject.Find("Origin");
 	}
 	
   void OnTriggerEnter(Collider other) {
-    var hittedThing = other.gameObject.transform;
-    var currentPortalTransform = gts.Portals[portalIndex].transform;
-    currentPortalTransform.position = hittedThing.position + (new Vector3(Mathf.Sin(shooterOrientation), 0, Mathf.Cos(shooterOrientation)));
-    currentPortalTransform.rotation = new Quaternion(0,shooterOrientation,0,0);
+    if (other.name.Contains("Wall")) {
+      GenerateTerrainScript gts = ori.GetComponent("GenerateTerrainScript") as GenerateTerrainScript;
+      Transform hittedThing = other.gameObject.transform;
+      Transform currentPortalTransform = gts.Portals[portalIndex].transform;
+      currentPortalTransform.position = hittedThing.position + (new Vector3(Mathf.Sin(shooterOrientation * Mathf.Deg2Rad), 0, Mathf.Cos(shooterOrientation * Mathf.Deg2Rad)));
+      currentPortalTransform.rotation = Quaternion.AngleAxis(shooterOrientation, Vector3.forward);
+      gts.Portals[portalIndex].SetActive(true);
+    }
   }
 
 }

@@ -109,8 +109,9 @@ public class characterScript : MonoBehaviour {
     portalAmoScript.portalIndex = newPortalIndex;
     portalAmoScript.shooterOrientation = Orientation;
     Rigidbody portalAmoRB = portalAmo.GetComponent("Rigidbody") as Rigidbody;
-    portalAmoRB.AddForce( Mathf.Sin(Orientation) * 10, 0, Mathf.Cos(Orientation) * 10, ForceMode.Impulse);
+    portalAmoRB.AddForce( Mathf.Sin(Orientation) * 1000, 0, Mathf.Cos(Orientation) * 1000, ForceMode.Impulse);
     if (Network.isServer) _myNetworkView.RPC("shootPortal", RPCMode.Others, newPortalIndex);
+    Debug.Log("débeugue");
   }
 
   [RPC]
