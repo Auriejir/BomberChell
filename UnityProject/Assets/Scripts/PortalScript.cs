@@ -3,10 +3,10 @@ using System.Collections;
 
 public class PortalScript : MonoBehaviour {
  
-  //private Transform thisPortal;
+  private int thisPortalIndex = -1;
+  private int linkedPortalIndex = -1;
   private Transform linkedPortal;
 
-  private int linkedPortalIndex;
 	
   private GenerateTerrainScript gts;
 
@@ -19,16 +19,17 @@ public class PortalScript : MonoBehaviour {
 
   // Use this for initialization
   void Start () {
-    //thisPortal = this.gameObject.transform;
-    linkedPortalIndex = PortalIndex + (1 - (2 * (PortalIndex % 2)));
+    //linkedPortalIndex = thisPortalIndex + (1 - (2 * (thisPortalIndex % 2)));
     GameObject ori = GameObject.Find("Origin");
     gts = ori.GetComponent("GenerateTerrainScript") as GenerateTerrainScript;
   }
   
   void OnTriggerEnter(Collider other) {
+    if (thisPortalIndex < 0) thisPortalIndex = (int)this.gameObject.name[this.gameObject.name.Length - 1] - 48;
+    if (linkedPortalIndex < 0) linkedPortalIndex = thisPortalIndex + (1 - (2 * (thisPortalIndex % 2)));
     if (gts.Portals[linkedPortalIndex].activeInHierarchy) {
-      if (linkedPortal==null) linkedPortal = gts.Portals[linkedPortalIndex].gameObject.transform;
-      other.gameObject.transform.position = new Vector3((int)Mathf.Round(linkedPortal.position.x), 0, (int)Mathf.Round(linkedPortal.position.z));
+      linkedPortal = gts.Portals[linkedPortalIndex].gameObject.transform;
+      other.gameObject.transform.position = new Vector3((int)Mathf.Round(linkedPortal.position.x), 1, (int)Mathf.Round(linkedPortal.position.z));
     }
   }
 

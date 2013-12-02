@@ -103,31 +103,29 @@ public class characterScript : MonoBehaviour {
 
   [RPC]
   void shootPortal(int newPortalIndex) {
-    GameObject portalAmo = GameObject.Instantiate(Bullet, new Vector3(form.position.x + Mathf.Sin(Orientation), 0.5f, form.position.z - Mathf.Cos(Orientation)), Quaternion.identity) as GameObject;
-    Debug.Log(portalAmo);
+    GameObject portalAmo = GameObject.Instantiate(Bullet, new Vector3(form.position.x + Mathf.Cos(Orientation * Mathf.Deg2Rad), 1.5f, form.position.z - Mathf.Sin(Orientation * Mathf.Deg2Rad)), Quaternion.identity) as GameObject;
     BulletScript portalAmoScript = (BulletScript)portalAmo.GetComponent("BulletScript");
     portalAmoScript.portalIndex = newPortalIndex;
     portalAmoScript.shooterOrientation = Orientation;
     Rigidbody portalAmoRB = portalAmo.GetComponent("Rigidbody") as Rigidbody;
-    portalAmoRB.AddForce( Mathf.Sin(Orientation) * 1000, 0, Mathf.Cos(Orientation) * 1000, ForceMode.Impulse);
+    portalAmoRB.AddForce( Mathf.Cos(Orientation * Mathf.Deg2Rad) * 1000, 0, Mathf.Sin(Orientation * Mathf.Deg2Rad) * -1000, ForceMode.Impulse);
     if (Network.isServer) _myNetworkView.RPC("shootPortal", RPCMode.Others, newPortalIndex);
-    Debug.Log("débeugue");
   }
 
   [RPC]
   void move(Vector3 resultVector) {
     form.position = form.position + resultVector * Speed * Time.deltaTime;
     if (resultVector.x > 0) {
-      if (resultVector.z > 0) Orientation = 45;
-      else if (resultVector.z > 0) Orientation = 135;
-      else Orientation = 90;
-    }else if (resultVector.x > 0) {
-      if (resultVector.z > 0) Orientation = 315;
-      else if (resultVector.z > 0) Orientation = 225;
+      if (resultVector.z > 0) Orientation = 225;
+      else if (resultVector.z < 0) Orientation = 315;
       else Orientation = 270;
+    }else if (resultVector.x < 0) {
+      if (resultVector.z > 0) Orientation = 135;
+      else if (resultVector.z < 0) Orientation = 45;
+      else Orientation = 90;
     }else {
-      if (resultVector.z > 0) Orientation = 0;
-      else if (resultVector.z > 0) Orientation = 180;
+      if (resultVector.z < 0) Orientation = 180;
+      else if (resultVector.z > 0) Orientation = 0;
     }
     form.rotation = Quaternion.Euler(0, Orientation, 0);
     if (Network.isServer) _myNetworkView.RPC("move", RPCMode.Others, resultVector);

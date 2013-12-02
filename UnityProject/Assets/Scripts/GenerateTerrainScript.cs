@@ -133,13 +133,15 @@ public class GenerateTerrainScript : MonoBehaviour {
     #endregion
 
     // Use this for initialization
-    void Start() {
-        MyNetworkView = this.gameObject.GetComponent<NetworkView>();
-        for (int i = 0; i < 8; i++) {
-            Portals[i] = (GameObject)Instantiate(Portal, new Vector3(0, -2, 0), Quaternion.identity);
-            Portals[i].SetActive(false);
-        }
+  void Start() {
+    MyNetworkView = this.gameObject.GetComponent<NetworkView>();
+    for (int i = 0; i < 8; i++) {
+      //Portals[i] = (GameObject)Instantiate(Portal, new Vector3(0, -2, 0), Quaternion.identity);
+      Portals[i].name = "Portal"+i;
+      Debug.Log(Portals[i].name);
+      Portals[i].SetActive(false);
     }
+  }
 
     [RPC]
     private void Load(int nbPlayerHuman, int nbPlayerTot, string level) {
