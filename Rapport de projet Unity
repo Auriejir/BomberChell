@@ -1,0 +1,17 @@
+Rapport de projet Unity
+
+	Objectif initial :
+L'objectif premier de ce projet était de créer un clone de BomberMan qui utiliserait les portails du jeu éponyme. il fallait également pouvoir jouer en réseau à plusieurs, pouvoir créer ses propres cartes, jouer contre la machine ou contre un autre joueur.
+
+	Travail réalisé :
+Nous avons réalisé un bomberman en réseau fonctionnel avec des bombes, la possibilité de jouer en mode un à quatre joueurs, des niveaux générés aléatoirement ou créés par les utilisateurs, une IA basique et presque des portails.
+
+	Ce qu'il reste à faire :
+Pour que ce jeu soit vraiment celui que nous voulions réaliser, il resterait à améliorer l'IA, s'occuper du design pour le rendre un peu plus "sérieux" (avec un style décalé et drôle par exemple), créer une petite application pour éditer les cartes facilement et faire fonctionner les portails.
+
+	difficultés rencontrées :
+Lors du développement de ce jeu, nous nous sommes heurtés à quelques difficultés, à savoir comprendre le fonctionnement du réseau dans unity, comprendre quels fichiers étaient importants à mettre sur le dépôt et la gestion des scripts par unity qui est assez déroutante.
+
+
+
+ps : pour faire fonctionner les portails, je ne vois plus que faire sept préfabs avec sept fois le même script, sous des noms différents... j'espère qu'il y a une autre solution.
