@@ -136,7 +136,7 @@ public class GenerateTerrainScript : MonoBehaviour {
   void Start() {
     MyNetworkView = this.gameObject.GetComponent<NetworkView>();
     for (int i = 0; i < 8; i++) {
-      //Portals[i] = (GameObject)Instantiate(Portal, new Vector3(0, -2, 0), Quaternion.identity);
+      Portals[i] = (GameObject)Instantiate(Portal, new Vector3(0, -2, 0), Quaternion.identity);
       Portals[i].name = "Portal"+i;
       Debug.Log(Portals[i].name);
       Portals[i].SetActive(false);

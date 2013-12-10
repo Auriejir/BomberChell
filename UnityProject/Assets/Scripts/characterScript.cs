@@ -103,12 +103,12 @@ public class characterScript : MonoBehaviour {
 
   [RPC]
   void shootPortal(int newPortalIndex) {
-    GameObject portalAmo = GameObject.Instantiate(Bullet, new Vector3(form.position.x + Mathf.Cos(Orientation * Mathf.Deg2Rad), 1.5f, form.position.z - Mathf.Sin(Orientation * Mathf.Deg2Rad)), Quaternion.identity) as GameObject;
+    GameObject portalAmo = GameObject.Instantiate(Bullet, new Vector3(form.position.x + Mathf.Cos((Orientation+90) * Mathf.Deg2Rad), 1f, form.position.z + Mathf.Sin((Orientation+90) * Mathf.Deg2Rad)), Quaternion.identity) as GameObject;
     BulletScript portalAmoScript = (BulletScript)portalAmo.GetComponent("BulletScript");
     portalAmoScript.portalIndex = newPortalIndex;
     portalAmoScript.shooterOrientation = Orientation;
     Rigidbody portalAmoRB = portalAmo.GetComponent("Rigidbody") as Rigidbody;
-    portalAmoRB.AddForce( Mathf.Cos(Orientation * Mathf.Deg2Rad) * 1000, 0, Mathf.Sin(Orientation * Mathf.Deg2Rad) * -1000, ForceMode.Impulse);
+    portalAmoRB.AddForce( Mathf.Cos((Orientation+90) * Mathf.Deg2Rad) * 1, 0, Mathf.Sin((Orientation+90) * Mathf.Deg2Rad) * 1, ForceMode.Impulse);
     if (Network.isServer) _myNetworkView.RPC("shootPortal", RPCMode.Others, newPortalIndex);
   }
 

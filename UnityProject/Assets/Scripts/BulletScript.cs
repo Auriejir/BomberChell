@@ -25,9 +25,8 @@ public class BulletScript : MonoBehaviour {
       currentPortalTransform.position = hitThing.position + (new Vector3(Mathf.Sin(shooterOrientation * Mathf.Deg2Rad)/1.9f, 0f, -1 * Mathf.Cos(shooterOrientation * Mathf.Deg2Rad)/1.9f));
       currentPortalTransform.rotation = Quaternion.Euler(0, (shooterOrientation + 180) % 360, 0);
       gts.Portals[portalIndex].SetActive(true);
-      Debug.Log("created portal " + portalIndex + " at " + gts.Portals[portalIndex].transform.position);
+      //Debug.Log("created portal " + portalIndex + " at " + gts.Portals[portalIndex].transform.position);
       Destroy(this.gameObject,0f);
-    }
+    } else if (other.name.Contains("Box")) Destroy(this.gameObject,0f);
   }
-
 }
